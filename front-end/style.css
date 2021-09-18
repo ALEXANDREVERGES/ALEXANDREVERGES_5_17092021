@@ -1,0 +1,54 @@
+body{
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+.text{
+    font-weight: bold;
+    font-size: 35px;
+}
+.acceuil{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(243,233,241);
+}
+.panier{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 20px;
+}
+.panier_text{
+    padding-top: 5px;
+}
+#img{
+    object-fit: cover;
+    width: 90%;
+    height: 80%;
+    margin-top: 5%;
+}
+.carte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(243,233,241);
+    margin-top: 50px;
+}
+.carte_info{
+    margin-top: 5%;
+    width: 90%;
+    display: flex;  
+    justify-content: space-between;
+}
+.text_info{
+    font-weight: bold;
+    font-size: 20px;
+}
+.orange{
+    color: rgb(216, 161, 60);
+   
+}
+.description{
+    width: 90%;
+    align-items: center;
+    text-align: center;
+}
