@@ -1,5 +1,6 @@
 body{
     font-family: 'Fira Sans Extra Condensed', sans-serif;
+    background-color: rgb(245, 245, 245);
 }
 .text{
     font-weight: bold;
@@ -9,7 +10,9 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100px;
     background-color: rgba(243,233,241);
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
 .panier{
     display: flex;
@@ -20,19 +23,52 @@ body{
 .panier_text{
     padding-top: 5px;
 }
-#img{
+#img,#img1,#img2,#img3,#img4,#img5{
     object-fit: cover;
     width: 90%;
     height: 80%;
     margin-top: 5%;
+    border-radius: 5%;
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
+    filter: grayscale(5%);
 }
+
 .carte{
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgba(243,233,241);
-    
+    margin-bottom: 5%;
+    border-radius: 15%;
+    text-decoration: none;
+    color: black;
 }
+.carte:hover{
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);  
+    filter: contrast(110%);
+    cursor: pointer;
+}
+#img:hover{
+    filter: contrast(100%);
+}
+#img1:hover{
+    filter: contrast(100%);
+}
+#img2:hover{
+    filter: contrast(100%);
+}
+#img3:hover{
+    filter: contrast(100%);
+}
+#img4:hover{
+    filter: contrast(100%);
+}
+#img5:hover{
+    filter: contrast(100%);
+}
+
+    
+
 .carte_info{
     margin-top: 5%;
     width: 90%;
@@ -51,17 +87,14 @@ body{
 .etoile{
     display: flex;
 }
-#description{
+#description,#description1,#description2,#description3,#description4{
     width: 90%;
     text-align: center;
     margin-bottom: 20px;
+    margin-top: 5px;
 }
-.description1{
-    width: 90%;
-    align-items: center;
-    text-align: center;
-}
-#name{
+
+#name,#name1,#name2,#name3,#name4{
     font-weight: bold;
     font-size: 30px;
     margin-top: 5%;
@@ -74,4 +107,82 @@ body{
     margin-top: 5%;
     margin-bottom: 5%;
     font-weight: bold;
+    color: #000000;
+
 }
+footer{
+    height: 120px;
+    background-color: rgba(243,233,241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
+}
+h3{
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: -10px;
+}
+.contact{
+    padding-bottom: 10px;
+}
+
+@media screen and (min-width:600px) and (max-width:899px){
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        height: 1800px;
+    }
+    .carte{
+        width: 49%;
+        margin-right: 1%;
+    }
+}
+@media screen and (min-width:900px) and (max-width:1200px){
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        height: ;
+    }
+    .carte{
+        width: 49%;
+        margin-right: 1%;
+    
+    }
+    #img,#img1,#img2,#img3,#img4,#img5{
+        object-fit: cover;
+        width: 90%;
+        height: 50%;
+        margin-top: 5%;
+        
+    }
+    #description,#description1,#description2,#description3,#description4{
+        width: 90%;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+}
+@media screen and (min-width:1201px){
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        height: ;
+        align-content: center;
+        justify-content: center;
+    }
+    .carte{
+        width: 30%;
+        margin-right: 1%;
+    
+    }
+    #img,#img1,#img2,#img3,#img4,#img5{
+        object-fit: cover;
+        width: 80%;
+        height: 50%;
+        margin-top: 5%;
+        
+    }
+}
+
