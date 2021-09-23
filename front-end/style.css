@@ -1,18 +1,27 @@
 body{
     font-family: 'Fira Sans Extra Condensed', sans-serif;
-    background-color: rgb(245, 245, 245);
+    background-color: rgb(243, 243, 243);
+    
+    
 }
 .text{
     font-weight: bold;
     font-size: 35px;
 }
-.acceuil{
+.home{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100px;
+    width: 100%;
     background-color: rgba(243,233,241);
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
+    justify-content: center;
+    height: 100px;
+}
+
+.acceuil{
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
 }
 .panier{
     display: flex;

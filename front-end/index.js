@@ -40,18 +40,6 @@ fetch('http://localhost:3000/api/teddies')
 
 
 
-const img5 = document.getElementById('img5');
-
-fetch('http://localhost:3000/api/teddies')
-.then(res => res.json())
-.then(data => img5.src = data[5].imageUrl)
-
-
-
-
-
-
-
 
 
 
@@ -65,37 +53,47 @@ dataAPI.then(async (resData) => {
         const price = res[0].price;
         const name = res[0].name;
         const description = res[0].description;
+        const _id = res[0]._id;
         console.log(price);
         console.log(name);
         console.log(description);
+        console.log(_id);
 
         const price1 = res[1].price;
         const name1 = res[1].name;
         const description1 = res[1].description;
+        
         console.log(price);
         console.log(name);
         console.log(description);
+        console.log(_id);
 
         const price2 = res[2].price;
         const name2 = res[2].name;
         const description2 = res[2].description;
+        
         console.log(price);
         console.log(name);
         console.log(description);
+        console.log(_id);
 
         const price3 = res[3].price;
         const name3 = res[3].name;
         const description3 = res[3].description;
+        
         console.log(price);
         console.log(name);
         console.log(description);
+        console.log(_id);
 
         const price4 = res[4].price;
         const name4 = res[4].name;
         const description4 = res[4].description;
+        
         console.log(price);
         console.log(name);
         console.log(description);
+        console.log(_id);
 
         //affichage texte des données récupérées
         const affichage_price = document.querySelector("#price");
