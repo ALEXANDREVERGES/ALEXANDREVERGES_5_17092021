@@ -19,7 +19,7 @@
     <script src="https://kit.fontawesome.com/029a99ed83.js" crossorigin="anonymous"></script>
 
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="front-end/style.css">
 
     <title>Orinoco</title>
 </head>
@@ -28,7 +28,7 @@
     <header>
     <div class="home">
         <div class="acceuil">
-            <img src="img/orinoco.PNG" alt="Logo orinoco">           
+            <a href="index.html"><img src="img/orinoco.PNG" alt="Logo orinoco"></a>           
             <div class="panier">
             <i class="fas fa-shopping-bag"></i>
             <div class="panier_text">PANIER</div>
@@ -38,23 +38,19 @@
     </header>
 
     <!--SECTION-->
-    <h1 class="section_titre">NOS PRODUITS</h1>
-    <section class="container">  
-        <a href="front-end/produits.html"class="carte"><span id="name"></span>
-            <div class="text"></div>
-                <img id="img" src="">
-                <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price"></span>€</p>                                   
-                </div> 
-                <span id="description"></span>                                
-            </div>
-        </a>
-        </section>
-        <footer>
+    
+    <section>
+        <h1 class="section_titre">Information de l'article</h1>
+        <div id="produit"></div>
+        
+        
+    </section>
+    <footer>
             <h3>Orinoco</h3>
             <a class="contact">Nous contacter</a>
-        </footer>
-        <script src="produits.js"></script> 
-        <script src="front-end/index.js"></script>   
+    </footer>
+    
+    <script src="front-end/index.js"></script> 
+    <script src="front-end/produit.js"></script> 
     </body>
     </html>

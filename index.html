@@ -40,11 +40,11 @@
     <!--SECTION-->
     <h1 class="section_titre">NOS PRODUITS</h1>
     <section class="container">  
-        <a href="front-end/produits.html"class="carte"><span id="name"></span>
+        <div class="carte"><span id="name"></span>
             <div class="text"></div>
-                <img id="img" src="">
+                <img id="img"   src="">
                 <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price"></span>€</p>                  
+                    <p class="text_info">Prix: <span id="price"></span>€</p>                                   
                     <div class="etoile">
                         <i class="fas fa-star orange"></i>
                         <i class="fas fa-star orange"></i>
@@ -53,10 +53,15 @@
                         <i class="far fa-star orange"></i>
                     </div>  
                 </div> 
-                <span id="description"></span>                                
+                <span id="description"></span>     
+               <form>
+                   <a href="produit.html">
+                       <input type="button" value="Infos" onclick="afficher()" id="article">
+                   </a>
+               </form>                                      
             </div>
-        </a>
-        <a href="front-end/produits.html"class="carte"><span id="name1"></span>
+        </div>
+        <div class="carte"><span id="name1"></span>
             <div class="text"></div>
                 <img id="img1" src="">
                 <div class="carte_info">  
@@ -69,10 +74,15 @@
                         <i class="fas fa-star-half-alt orange"></i>
                     </div>  
                 </div> 
-                <span id="description1"></span>                                
+                <span id="description1"></span>   
+                <form>
+                    <a href="produit.html">
+                        <input type="button" value="Infos" onclick="afficher1()" id="article1">
+                    </a>
+                </form>                                                                   
             </div>
-        </a>
-        <a href="front-end/produits.html"class="carte"><span id="name2"></span>
+        </div>
+        <div class="carte" ><span id="name2"></span>
             <div class="text"></div>
                 <img id="img2" src="">
                 <div class="carte_info">  
@@ -85,10 +95,15 @@
                         <i class="far fa-star orange"></i>
                     </div>  
                 </div> 
-                <span id="description2"></span>                                
+                <span id="description2"></span>  
+                <form>
+                    <a href="produit.html">
+                        <input type="button" value="Infos" onclick="afficher2()" id="article2">
+                    </a>
+                </form>                              
             </div>
-        </a>
-        <a href="front-end/produits.html"class="carte"><span id="name3"></span>
+        </div>
+        <div class="carte"><span id="name3"></span>
             <div class="text"></div>
                 <img id="img3" src="">
                 <div class="carte_info">  
@@ -101,10 +116,15 @@
                         <i class="far fa-star orange"></i>
                     </div>  
                 </div> 
-                <span id="description3"></span>                                
+                <span id="description3"></span>
+                <form>
+                    <a href="produit.html">
+                        <input type="button" value="Infos" onclick="afficher3()" id="article3">
+                    </a>
+                </form>                                
             </div>
-        </a>
-        <a href="front-end/produits.html"class="carte"><span id="name4"></span>
+        </div>
+        <div class="carte"><span id="name4"></span>
             <div class="text"></div>
                 <img id="img4" src="">
                 <div class="carte_info">  
@@ -117,9 +137,14 @@
                         <i class="far fa-star orange"></i>
                     </div>  
                 </div> 
-                <span id="description4"></span>                                
+                <span id="description4"></span>
+                <form>
+                    <a href="produit.html">
+                        <input type="button" value="Infos" onclick="afficher4()" id="article4">
+                    </a>
+                </form>                                
             </div>
-        </a>                         
+        </div>                         
                    
     </section>
     <footer>
@@ -128,5 +153,6 @@
     </footer>
 
 <script src="front-end/index.js"></script>    
+<script src="front-end/produit.js"></script> 
 </body>
 </html>

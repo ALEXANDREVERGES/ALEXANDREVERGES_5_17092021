@@ -4,7 +4,7 @@ const img = document.getElementById('img');
 
 fetch('http://localhost:3000/api/teddies')
 .then(res => res.json())
-.then(data => img.src = data[0].imageUrl)
+.then(data => img.src = data[0].imageUrl);
 
 
 
@@ -12,7 +12,7 @@ const img1 = document.getElementById('img1');
 
 fetch('http://localhost:3000/api/teddies')
 .then(res => res.json())
-.then(data => img1.src = data[1].imageUrl)
+.then(data => img1.src = data[1].imageUrl);
 
 
 
@@ -20,7 +20,7 @@ const img2 = document.getElementById('img2');
 
 fetch('http://localhost:3000/api/teddies')
 .then(res => res.json())
-.then(data => img2.src = data[2].imageUrl)
+.then(data => img2.src = data[2].imageUrl);
 
 
 
@@ -28,7 +28,7 @@ const img3 = document.getElementById('img3');
 
 fetch('http://localhost:3000/api/teddies')
 .then(res => res.json())
-.then(data => img3.src = data[3].imageUrl)
+.then(data => img3.src = data[3].imageUrl);
 
 
 
@@ -36,7 +36,7 @@ const img4 = document.getElementById('img4');
 
 fetch('http://localhost:3000/api/teddies')
 .then(res => res.json())
-.then(data => img4.src = data[4].imageUrl)
+.then(data => img4.src = data[4].imageUrl);
 
 
 
@@ -50,65 +50,83 @@ dataAPI.then(async (resData) => {
 
     try{
         //Récupérer données Prix nom description 
+        
+        const article = res[0]._id;
         const price = res[0].price;
         const name = res[0].name;
         const description = res[0].description;
-        const _id = res[0]._id;
+        
+        console.log(article);
         console.log(price);
         console.log(name);
         console.log(description);
-        console.log(_id);
+        
+        
 
+        const article1 = res[1]._id;     
         const price1 = res[1].price;
         const name1 = res[1].name;
         const description1 = res[1].description;
         
-        console.log(price);
-        console.log(name);
-        console.log(description);
-        console.log(_id);
+        console.log(article1);
+        console.log(price1);
+        console.log(name1);
+        console.log(description1);
+        
+        
 
+        const article2 = res[2]._id; 
         const price2 = res[2].price;
         const name2 = res[2].name;
         const description2 = res[2].description;
-        
-        console.log(price);
-        console.log(name);
-        console.log(description);
-        console.log(_id);
 
+        console.log(article2);
+        console.log(price2);
+        console.log(name2);
+        console.log(description2);
+        
+
+        const article3 = res[3]._id; 
         const price3 = res[3].price;
         const name3 = res[3].name;
         const description3 = res[3].description;
         
-        console.log(price);
-        console.log(name);
-        console.log(description);
-        console.log(_id);
+        console.log(article3);
+        console.log(price3);
+        console.log(name3);
+        console.log(description3);
+        
 
+        const article4 = res[4]._id; 
         const price4 = res[4].price;
         const name4 = res[4].name;
         const description4 = res[4].description;
         
-        console.log(price);
-        console.log(name);
-        console.log(description);
-        console.log(_id);
+        console.log(article4);
+        console.log(price4);
+        console.log(name4);
+        console.log(description4);
+        
 
         //affichage texte des données récupérées
+        
         const affichage_price = document.querySelector("#price");
         const affichage_name = document.querySelector("#name");
         const affichage_description = document.querySelector("#description");
         affichage_price.innerHTML = price;
         affichage_name.innerHTML = name;
         affichage_description.innerHTML = description;
+        
+        
 
+        
         const affichage_price1 = document.querySelector("#price1");
         const affichage_name1 = document.querySelector("#name1");
         const affichage_description1 = document.querySelector("#description1");
         affichage_price1.innerHTML = price1;
         affichage_name1.innerHTML = name1;
         affichage_description1.innerHTML = description1;
+        
 
         const affichage_price2 = document.querySelector("#price2");
         const affichage_name2 = document.querySelector("#name2");
@@ -130,8 +148,8 @@ dataAPI.then(async (resData) => {
         affichage_price4.innerHTML = price4;
         affichage_name4.innerHTML = name4;
         affichage_description4.innerHTML = description4;
-    }catch(err){
-        console.log(err);
+    } catch(err){
+            console.log(err);
     }
 });
 
