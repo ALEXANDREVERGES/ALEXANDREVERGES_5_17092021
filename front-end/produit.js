@@ -93,7 +93,6 @@ afficher4('5beaacd41c9d440000a57d97','Garfunkel','5500','http://localhost:3000/i
 
 
 
-
 //fetch('http://localhost:3000/api/teddies')
 //.then(res => res.json())
 //.then(data =>  data[0]._id)

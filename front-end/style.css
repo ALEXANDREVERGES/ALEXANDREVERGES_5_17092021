@@ -50,6 +50,25 @@ body{
     text-decoration: none;
     color: black;
 }
+.container1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+.carte1{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(243,233,241);
+    margin-bottom: 5%;
+    border-radius: 15%;
+    text-decoration: none;
+    color: black;
+}
+
 .carte:hover{
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);  
     filter: contrast(110%);
