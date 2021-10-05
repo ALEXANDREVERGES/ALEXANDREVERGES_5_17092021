@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@1,300&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet"> 
 
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/029a99ed83.js" crossorigin="anonymous"></script>
@@ -28,131 +31,27 @@
     <header>
     <div class="home">
         <div class="acceuil">
-            <img src="img/orinoco.PNG" alt="Logo orinoco">           
+            <div class="title">Orinoco</div>          
             <div class="panier">
-            <i class="fas fa-shopping-bag"></i>
-            <div class="panier_text">PANIER</div>
+                <i class="fas fa-shopping-bag"></i>
+                <div class="panier_text">PANIER</div>
             </div>
         </div>
     </div>
     </header>
 
-    <!--SECTION-->
+    
     <h1 class="section_titre">NOS PRODUITS</h1>
-    <section class="container">  
-        <div class="carte"><span id="name"></span>
-            <div class="text"></div>
-                <img id="img"   src="">
-                <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price"></span>€</p>                                   
-                    <div class="etoile">
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star-half-alt orange"></i>
-                        <i class="far fa-star orange"></i>
-                    </div>  
-                </div> 
-                <span id="description"></span>     
-               <form>
-                   <a href="produit.html" id="article">
-                       <input type="button" value="Infos" onclick="afficher()" >
-                   </a>
-               </form>                                      
-            </div>
-        </div>
-        <div class="carte"><span id="name1"></span>
-            <div class="text"></div>
-                <img id="img1" src="">
-                <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price1"></span>€</p>                  
-                    <div class="etoile">
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star-half-alt orange"></i>
-                    </div>  
-                </div> 
-                <span id="description1"></span>   
-                <form>
-                    <a href="produit.html">
-                        <input type="button" value="Infos" onclick="afficher1()" id="article1">
-                    </a>
-                </form>                                                                   
-            </div>
-        </div>
-        <div class="carte" ><span id="name2"></span>
-            <div class="text"></div>
-                <img id="img2" src="">
-                <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price2"></span>€</p>                  
-                    <div class="etoile">
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="far fa-star orange"></i>
-                    </div>  
-                </div> 
-                <span id="description2"></span>  
-                <form>
-                    <a href="produit.html">
-                        <input type="button" value="Infos" onclick="afficher2()" id="article2">
-                    </a>
-                </form>                              
-            </div>
-        </div>
-        <div class="carte"><span id="name3"></span>
-            <div class="text"></div>
-                <img id="img3" src="">
-                <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price3"></span>€</p>                  
-                    <div class="etoile">
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star-half-alt orange"></i>
-                        <i class="far fa-star orange"></i>
-                    </div>  
-                </div> 
-                <span id="description3"></span>
-                <form>
-                    <a href="produit.html">
-                        <input type="button" value="Infos" onclick="afficher3()" id="article3">
-                    </a>
-                </form>                                
-            </div>
-        </div>
-        <div class="carte"><span id="name4"></span>
-            <div class="text"></div>
-                <img id="img4" src="">
-                <div class="carte_info">  
-                    <p class="text_info">Prix: <span id="price4"></span>€</p>                  
-                    <div class="etoile">
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="fas fa-star orange"></i>
-                        <i class="far fa-star orange"></i>
-                    </div>  
-                </div> 
-                <span id="description4"></span>
-                <form>
-                    <a href="produit.html">
-                        <input type="button" value="Infos" onclick="afficher4()" id="article4">
-                    </a>
-                </form>                                
-            </div>
-        </div>                         
-                   
-    </section>
-    <footer>
-        <h3>Orinoco</h3>
+    <div id="article"></div>
+
+    <!--Footer-->
+    <footer class="foot">
+        <h3 class="title">Orinoco</h3>
         <a class="contact">Nous contacter</a>
     </footer>
 
 <script src="front-end/index.js"></script>    
-<script src="front-end/produit.js"></script> 
+<script src="front-end/produit.js"></script>  
+
 </body>
 </html>

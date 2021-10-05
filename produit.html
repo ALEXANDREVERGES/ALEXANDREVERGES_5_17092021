@@ -14,6 +14,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@1,300&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet"> 
 
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/029a99ed83.js" crossorigin="anonymous"></script>
@@ -28,7 +31,7 @@
     <header>
     <div class="home">
         <div class="acceuil">
-            <a href="index.html"><img src="img/orinoco.PNG" alt="Logo orinoco"></a>           
+            <a href="index.html"><div class="title">Orinoco</div></a>           
             <div class="panier">
             <i class="fas fa-shopping-bag"></i>
             <div class="panier_text">PANIER</div>
@@ -38,35 +41,48 @@
     </header>
 
     <!--SECTION-->
-    
-    <section>
-        <h1 class="section_titre">Information de l'article</h1>
-        <div class="container1">
-            <div class="carte1"><span id="name name1 name2 name3 name4"></span>
-             <div class="text"></div>
-                  <img id="img0 img1 img2 img3 img4"   src="">
-                    <div class="carte_info">  
-                       <p class="text_info">Prix: <span id="price price1 price2 price3 price4"></span>€</p>                                                        
-                </div> 
-                <span id="description description1 description2 description3 description4"></span>     
-               <form>
-                   <a id="article">
-                       <input type="button" value="Ajouter au panier" onclick="afficher()" >
-                   </a>
-               </form>                                      
-            </div>
-        </div>
-    </div>
-        
-        
+        <h1 class="section_titre">Votre nounours</h1>
+        <section>
+            <div class="carte1">
+                <div class="" id="produit">
+                    <div class="name" id="produitName"></div>
+                    <div class="" id="produitImage"></div>
+                                <div class="" id="produitPrice"></div>
+                                <div class="center">
+                                    <select id="couleurs" class="" aria-label="choisir la couleur">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    </select>
+                                </div>
+                            <div class="" id="produitDescription"></div>
+                            <div class="btn">
+                                <div class="text_info2"><p>Quantité</p></div>
+                                <div class=" ">
+                                    <select id="quantity" class="" aria-label="Quantité">
+                                        <option selected value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                            </div>
+                        <div class="center">
+                            <button id="" class="btn_ajout">Ajouter au panier</button>
+                        </div>
+                </div>  
+            </div>                      
     </section>
-    <footer>
-            <h3>Orinoco</h3>
-            <a class="contact">Nous contacter</a>
+    <!--Footer-->
+    <footer class="foot1">
+        <h3><a href="index.html"><div class="title">Orinoco</div></a></h3>
+        <a class="contact">Nous contacter</a>
     </footer>
-    
-    <script src="front-end/index.js"></script> 
-    <script src="front-end/produit.js"></script> 
-    
-    </body>
-    </html>
+
+<script src="front-end/index.js"></script>    
+<script src="front-end/produit.js"></script>  
+
+</body>
+</html>
