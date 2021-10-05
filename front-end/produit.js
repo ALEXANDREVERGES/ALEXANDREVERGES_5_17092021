@@ -25,21 +25,36 @@ fetch(newUrl)
         `;
             const selectionProduitPrice = document.getElementById("produitPrice");
             selectionProduitPrice.innerHTML += `
-         <h5 class="text_info1">Prix:${produit.price}€</h5>
+         <h5 class="text_info1">Prix:${produit.price /100},00€</h5>
         `;
             const selectionProduitDescription = document.getElementById("produitDescription");
             selectionProduitDescription.innerHTML += `
         <p class="text_info1">${produit.description}</p>
         `;
+//        const ProduitColors = document.getElementById("produitColors");
+//            ProduitColors.innerHTML += `
+ //       <div id="" class="" aria-label="choisir la couleur">
+//        <p>${produit.colors[0]}</p>
+ //       <p>${produit.colors[1]}</p>
+ //       <p>${produit.colors[2]}</p>
+//        <p>${produit.colors[3]}</p>
+ //   </div>
+//    `;       
+            const colors = document.getElementById("produitColors")
             const selectionProduitColors = document.getElementById("produitColors");
-            selectionProduitColors.innerHTML += `
-        <select id="" class="" aria-label="choisir la couleur">
-            <option value="${produit.colors[1]}"></option>
-            <option value="${produit.colors[2]}"></option>
-            <option value="${produit.colors[3]}"></option>
-            <option value="${produit.colors[4]}"></option>
-        </select>`;           
-        }
+            selectionProduitDescription.innerHTML +=`
+            <div class="center">   
+            <div class="text_info2">Choisir la couleur :</div>
+            <select id="couleurs" class="" aria-label="choisir la couleur">
+            <option value="">${produit.colors[0]}</option>
+            <option value="">${produit.colors[1]}</option>
+            <option value="">${produit.colors[2]}</option>
+            <option value="">${produit.colors[3]}</option>
+            </select>
+            </div> `;
 
-        
-    });
+          
+
+}
+    
+});

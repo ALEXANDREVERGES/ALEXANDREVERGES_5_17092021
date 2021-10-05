@@ -26,7 +26,7 @@ function addCards(data) {
                     <p class="name">${produit.name}</p>
                     <div></div>
                     <img class="img" src="${produit.imageUrl}"> 
-                    <p class="text_info">Prix:${produit.price}€</p>   
+                    <p class="text_info">Prix: ${produit.price/100},00€</p>   
                     <div class="carte_info">  
                     <p class="text_info"> ${produit.description}</p>
                    
