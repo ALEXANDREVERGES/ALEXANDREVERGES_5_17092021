@@ -20,16 +20,15 @@ function addCards(data) {
 //recupère l'élément liste dans le HTML
         const cards = document.getElementById("article");
         cards.innerHTML += `
-        <div class="container">
-            <a href="produit.html?_id=${produit._id}">
+        <div class="container">            
                 <div class="carte">
+                <a href="produit.html?_id=${produit._id}">
                     <p class="name">${produit.name}</p>
-                    <div></div>
-                    <img class="img" src="${produit.imageUrl}"> 
+                    <div class="center">
+                    <img class="img" src="${produit.imageUrl}"> </div>
                     <p class="text_info">Prix: ${produit.price/100},00€</p>   
                     <div class="carte_info">  
-                    <p class="text_info"> ${produit.description}</p>
-                   
+                    <p class="text_info"> ${produit.description}</p>                   
                     </div>
                 </div>
             </a>

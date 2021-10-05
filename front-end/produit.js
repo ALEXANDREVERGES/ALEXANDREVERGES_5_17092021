@@ -30,16 +30,7 @@ fetch(newUrl)
             const selectionProduitDescription = document.getElementById("produitDescription");
             selectionProduitDescription.innerHTML += `
         <p class="text_info1">${produit.description}</p>
-        `;
-//        const ProduitColors = document.getElementById("produitColors");
-//            ProduitColors.innerHTML += `
- //       <div id="" class="" aria-label="choisir la couleur">
-//        <p>${produit.colors[0]}</p>
- //       <p>${produit.colors[1]}</p>
- //       <p>${produit.colors[2]}</p>
-//        <p>${produit.colors[3]}</p>
- //   </div>
-//    `;       
+        `;   
             const colors = document.getElementById("produitColors")
             const selectionProduitColors = document.getElementById("produitColors");
             selectionProduitDescription.innerHTML +=`
