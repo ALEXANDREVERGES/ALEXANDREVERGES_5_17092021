@@ -17,15 +17,15 @@ fetch(newUrl)
 // insertion des informations des cartes
             const selectionProduitImage = document.getElementById("produitImage");
             selectionProduitImage.innerHTML += `
-        <img src="${produit.imageUrl}" class="img" alt="${produit.name}">
+        <img src="${produit.imageUrl}" class="img1" alt="${produit.name}">
         `;
             const selectionProduitName = document.getElementById("produitName");
             selectionProduitName.innerHTML += `
-        <h5 class="">${produit.name}</h5>
+        <h5 class="name1">${produit.name}</h5>
         `;
             const selectionProduitPrice = document.getElementById("produitPrice");
             selectionProduitPrice.innerHTML += `
-         <h5 class="text_info1">Prix:${produit.price /100},00€</h5>
+         <h5 class="text_info1">Prix : ${produit.price /100},00€</h5>
         `;
             const selectionProduitDescription = document.getElementById("produitDescription");
             selectionProduitDescription.innerHTML += `
@@ -70,3 +70,4 @@ anime.timeline({loop: true})
     easing: "easeOutExpo",
     delay: 1000
   });
+  

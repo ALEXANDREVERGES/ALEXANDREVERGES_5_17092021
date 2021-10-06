@@ -1,6 +1,3 @@
-//addcards(data)
-//function addcards(data)
-//const card = document.getElementById("article");
 
 fetch('http://localhost:3000/api/teddies')
 .then((res) => res.json())
@@ -26,7 +23,7 @@ function addCards(data) {
                     <p class="name">${produit.name}</p>
                     <div class="center">
                     <img class="img" src="${produit.imageUrl}"> </div>
-                    <p class="text_info">Prix: ${produit.price/100},00€</p>   
+                    <p class="text_info">Prix : ${produit.price/100},00€</p>   
                     <div class="carte_info">  
                     <p class="text_info"> ${produit.description}</p>                   
                     </div>

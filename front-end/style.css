@@ -2,6 +2,7 @@ body{
     font-family: 'Fira Sans Extra Condensed', sans-serif;
     background-color: rgb(228, 228, 228);   
 }
+
 .home{
     display: flex;
     width: 100%;
@@ -27,6 +28,8 @@ body{
 .panier{
     display: flex;
     justify-content: space-around;
+    font-size: 25px;
+    margin-left: 15px;
 }
 .panier_text{
     margin-left: 5px;
@@ -88,7 +91,9 @@ a{
     border-radius: 5%;
 }
 .img1{
-    width: 50%;
+    width: 80%;
+    border-radius: 10%;
+    margin-top: -60px;
 }
 .carte{
     display: flex;
@@ -96,21 +101,21 @@ a{
     flex-direction: column;
     align-items: center;
     height: 380px;
-    margin-bottom: 20px;
     background: rgb(155,155,235);
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
+    margin-bottom: 20px;
     border-radius: 5%;
     color: white;
 }
 .carte1{
     display: flex;
-    width: 100%;
-    flex-direction: column;
+    width: 80%;
     align-items: center;
-    height: 620px;
-    background-color: rgb(155, 155, 235);
+    height: 600px;
+    background: rgb(155,155,235);
+    background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
     border-radius: 10%;
-    color: rgb(36, 35, 82);
+    color: white;
 }
 .carte:hover{
     cursor: pointer;
@@ -198,7 +203,7 @@ section{
     justify-content: center;
     font-family: 'Monoton', cursive;
     font-weight: 900;
-    font-size: 3.7em;
+    font-size: 30px;
   }
   .ml7 .text-wrapper {
     position: relative;
@@ -213,6 +218,18 @@ section{
     display: inline-block;
     line-height: 1em;
   }
+  
+#produit{
+    height: 580px;
+}
+.contact{
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 370px){
+    .img1{
+        margin-top: 0px;
+    }
+}
 @media screen and (min-width: 371px) and (max-width: 510px){
     .carte{
         display: flex;
@@ -223,6 +240,58 @@ section{
         background-color: rgb(155, 155, 235);
         border-radius: 5%;
         color: white;
+    }
+    .img1{
+        margin-top: 0px;
+    }
+}
+@media screen and (min-width: 430px) and (max-width: 600px){
+    #produit{
+        height: 610px;
+    }
+    .carte1{
+        display: flex;
+        width: 80%;
+        align-items: center;
+        height: 680px;
+        background: rgb(155,155,235);
+        background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
+        border-radius: 10%;
+        color: white;
+        
+    }
+    .img1{
+        width:70%;
+        margin-top: 0px;
+    }
+    .foot1{
+        margin-top: 50px;
+    }
+}
+@media screen and (min-width: 601px) and (max-width: 760px){
+    .section1{
+        height: 800px;
+    }
+    #produit{
+        height: 660px;
+    }
+    .carte1{
+        display: flex;
+        width: 80%;
+        align-items: center;
+        height: 740px;
+        background: rgb(155,155,235);
+        background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
+        border-radius: 10%;
+        color: white;
+        
+    }
+    .img1{
+        width:70%;
+        margin-top: 0px;
+    }
+    .foot1{
+        margin-top: 50px;
     }
 }
 @media screen and (min-width: 511px) and (max-width: 620px){
@@ -245,6 +314,36 @@ section{
     .container{
         width: 100%;
     }
+
+}
+@media screen and (min-width: 761px) and (max-width: 2500px){
+    .section1{
+        height: 800px;
+    }
+    #produit{
+        height: 740px;
+    }
+    .carte1{
+        display: flex;
+        width: 586px;
+        align-items: center;
+        height: 760px;
+        background: rgb(155,155,235);
+        background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
+        border-radius: 10%;
+        color: white;
+        
+    }
+    .img1{
+        width: 469px;
+    }
+    .foot1{
+        margin-top: 50px;
+    }
+    .name1{
+        font-size: 40px;
+    }
+
 
 }
 @media screen and (min-width: 620px) and (max-width: 824px){
@@ -329,6 +428,9 @@ section{
     .text_info{
         width: 90%;    
     }
+    .ml7{
+        font-size: 50px;
+    }
 }
 @media screen and (min-width: 1401px) and (max-width: 1650px){
     .img{
@@ -349,6 +451,9 @@ section{
     }
     .text_info{
         width: 90%;    
+    }
+    .ml7{
+        font-size: 50px;
     }
 
 }
@@ -372,6 +477,9 @@ section{
     .text_info{
         width: 90%;    
     }
+    .ml7{
+        font-size: 50px;
+    }
 
 }
 @media screen and (min-width: 1801px) and (max-width: 2500px){
@@ -394,7 +502,10 @@ section{
     .text_info{
         width: 100%;    
     }
+    .ml7{
+        font-size: 50px;
+    }
 
 }
-}
+
   
