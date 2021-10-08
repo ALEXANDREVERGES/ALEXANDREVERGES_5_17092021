@@ -5,8 +5,7 @@ fetch('http://localhost:3000/api/teddies')
     console.log(data)
     const produit = data
     console.log(produit)
-    addCards(data);
-    
+    addCards(data)
 });
 
 
@@ -16,6 +15,7 @@ function addCards(data) {
     for (produit of data) {
 //recupère l'élément liste dans le HTML
         const cards = document.getElementById("article");
+// insertion sur la page web        
         cards.innerHTML += `
         <div class="container">            
                 <div class="carte">
@@ -32,7 +32,7 @@ function addCards(data) {
         </div>`;
 }
 }
-// Wrap every letter in a span
+//Animation des titres
 var textWrapper = document.querySelector('.ml7 .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 

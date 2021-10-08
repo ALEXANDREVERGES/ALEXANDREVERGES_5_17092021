@@ -94,6 +94,7 @@ a{
     width: 80%;
     border-radius: 10%;
     margin-top: -60px;
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
 .carte{
     display: flex;
@@ -116,6 +117,7 @@ a{
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
     border-radius: 10%;
     color: white;
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
 .carte:hover{
     cursor: pointer;
@@ -192,7 +194,7 @@ section{
     justify-content: center;
     height: 30px;
 }
-#couleurs{
+#list{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,6 +226,9 @@ section{
 }
 .contact{
     margin-bottom: 10px;
+}
+.margin{
+    margin-right: 10px;
 }
 @media screen and (max-width: 370px){
     .img1{

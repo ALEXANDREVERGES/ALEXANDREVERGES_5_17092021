@@ -14,7 +14,7 @@ fetch(newUrl)
 // fonction pour la création de la carte de la page produit
         function addCards(produit) {
 
-// insertion des informations des cartes
+// insertion des informations des cartes sur la page web
             const selectionProduitImage = document.getElementById("produitImage");
             selectionProduitImage.innerHTML += `
         <img src="${produit.imageUrl}" class="img1" alt="${produit.name}">
@@ -36,19 +36,52 @@ fetch(newUrl)
             selectionProduitDescription.innerHTML +=`
             <div class="center">   
             <div class="text_info2">Choisir la couleur :</div>
-            <select id="couleurs" class="" aria-label="choisir la couleur">
-            <option value="">${produit.colors[0]}</option>
-            <option value="">${produit.colors[1]}</option>
-            <option value="">${produit.colors[2]}</option>
-            <option value="">${produit.colors[3]}</option>
+            <select id="list" onchange="getSelectValue();" aria-label="choisir la couleur">
+            <option select="selected"  "value="${produit.colors[0]}">${produit.colors[0]}</option>
+            <option value="${produit.colors[1]}">${produit.colors[1]}</option>
+            <option value="${produit.colors[2]}">${produit.colors[2]}</option>
+            <option value="${produit.colors[3]}">${produit.colors[3]}</option>
             </select>
-            </div> `;
-
-          
-
+            </div> `;          
 }
     
 });
+//PANIER
+
+//Récupération données sélectionnées par l'utilisateur au click avec onchange
+
+function getSelectValue() {
+  var selectedValue = document.getElementById("list").value;
+  console.log(selectedValue);
+}
+getSelectValue();
+
+function qtValue() {
+  var selectedValue = document.getElementById("quantity").value;
+  console.log(selectedValue);
+}
+qtValue();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------ANIMATION TITRES---------------------------------------//
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml7 .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
@@ -70,4 +103,4 @@ anime.timeline({loop: true})
     easing: "easeOutExpo",
     delay: 1000
   });
-  
+  var timeout;

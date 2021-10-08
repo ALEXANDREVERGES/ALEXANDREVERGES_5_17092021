@@ -31,13 +31,13 @@
     <header>
     <div class="home">
         <div class="acceuil">
-            <a href="index.html"><div class="title">Orinoco</div></a>           
-            <div class="panier">
+            <a href="index.html"><div class="title">Orinoco</div></a>             
+          <div class="panier">
             <i class="fas fa-shopping-bag"></i>
-            <a href="panier.html"><div class="panier_text">PANIER</div></a>
+           <a href="panier.html"><div class="panier_text">PANIER</div></a>
             </div>
         </div>
-    </div>
+    </div> 
     </header>
 
     <!--SECTION-->
@@ -49,7 +49,7 @@
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
         <section class="section1">
-            <div class="carte1 radial-gradient">
+            <div class="carte1 ">
                 <div class="" id="produit">
                     <div class="name" id="produitName"></div>
                     <div class="" id="produitImage"></div>
@@ -58,7 +58,7 @@
                             <div class="btn">
                                 <div class="text_info2"><p>Quantité</p></div>
                                 <div class=" ">
-                                    <select id="quantity" class="" aria-label="Quantité">
+                                    <select id="quantity" onchange="qtValue();" class="quantity" aria-label="Quantité">
                                         <option selected value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -68,7 +68,8 @@
                                 </div>
                             </div>
                         <div class="center">
-                            <button type="button" data-name="produitName" data-price="produitPrice" data-id="newId" class="btn_ajout">Ajouter au panier</button>
+                            <a href="index.html"><button class="btn_ajout margin" type="button">Retour boutique</button></a>
+                            <a href="panier.html"><button id="btn_ajout"  type="submit" data-name="produit.name" data-price="produit.price" data-id="newId" class="btn_ajout">Ajouter au panier</button></a>
                         </div>
                 </div>  
             </div>                      
@@ -81,6 +82,7 @@
 
 <script src="front-end/index.js"></script>    
 <script src="front-end/produit.js"></script>
+<script src="front-end/panier.js"></script>
  
 
 </body>
