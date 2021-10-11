@@ -55,11 +55,15 @@
                     <div class="" id="produitImage"></div>
                                 <div class="" id="produitPrice"></div>                                                           
                             <div class="" id="produitDescription"></div>
+                            <div class="center">   
+                                <div class="text_info2">Choisir la couleur :</div>
+                            <select id="produitColors" onchange="getSelectValue();" aria-label="choisir la couleur"></select> </div>
                             <div class="btn">
                                 <div class="text_info2"><p>Quantité</p></div>
                                 <div class=" ">
                                     <select id="quantity" onchange="qtValue();" class="quantity" aria-label="Quantité">
-                                        <option selected value="1">1</option>
+                                        <option value=""></option>
+                                        <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
@@ -69,7 +73,7 @@
                             </div>
                         <div class="center">
                             <a href="index.html"><button class="btn_ajout margin" type="button">Retour boutique</button></a>
-                            <a href="panier.html"><button id="btn_ajout"  type="submit" data-name="produit.name" data-price="produit.price" data-id="newId" class="btn_ajout">Ajouter au panier</button></a>
+                            <button id="bouton" data-name="produit.name" data-price="produit.price" data-id="newId" class="btn_ajout">Ajouter au panier</button>
                         </div>
                 </div>  
             </div>                      

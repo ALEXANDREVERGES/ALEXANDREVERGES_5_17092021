@@ -85,6 +85,7 @@ a{
     justify-content: center;
     align-items: center;
     width: 90%;
+    
     object-fit: cover;
     margin-top: -25px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
@@ -194,12 +195,7 @@ section{
     justify-content: center;
     height: 30px;
 }
-#list{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
-}
+
 .ml7 {
     display: flex;
     justify-content: center;

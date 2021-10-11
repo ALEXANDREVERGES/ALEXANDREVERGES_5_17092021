@@ -10,6 +10,7 @@ fetch(newUrl)
     .then((data) => {
         const produit = data;
         addCards(data);
+       
 
 // fonction pour la création de la carte de la page produit
         function addCards(produit) {
@@ -31,43 +32,53 @@ fetch(newUrl)
             selectionProduitDescription.innerHTML += `
         <p class="text_info1">${produit.description}</p>
         `;   
-            const colors = document.getElementById("produitColors")
+            const colors = document.getElementById("produitColors");
             const selectionProduitColors = document.getElementById("produitColors");
-            selectionProduitDescription.innerHTML +=`
-            <div class="center">   
-            <div class="text_info2">Choisir la couleur :</div>
-            <select id="list" onchange="getSelectValue();" aria-label="choisir la couleur">
-            <option select="selected"  "value="${produit.colors[0]}">${produit.colors[0]}</option>
-            <option value="${produit.colors[1]}">${produit.colors[1]}</option>
-            <option value="${produit.colors[2]}">${produit.colors[2]}</option>
-            <option value="${produit.colors[3]}">${produit.colors[3]}</option>
+            for (let c = 0; c < produit.colors.length; c++){
+            selectionProduitColors.innerHTML +=`
+            <select>
+            <option select="selected" value=""></option> 
+            <option value"${c}">${produit.colors[c]}</option>            
             </select>
             </div> `;          
-}
-    
-});
+}}
+});    
+
 //PANIER
 
 //Récupération données sélectionnées par l'utilisateur au click avec onchange
+//et envoie au localstorage lors du choix
 
 function getSelectValue() {
-  var selectedValue = document.getElementById("list").value;
+  var selectedValue = document.getElementById("produitColors").value;
   console.log(selectedValue);
+  localStorage.setItem('couleurChoisi', selectedValue);
+  document.location.reload
 }
 getSelectValue();
 
 function qtValue() {
-  var selectedValue = document.getElementById("quantity").value;
-  console.log(selectedValue);
+  var selecteValue = document.getElementById("quantity").value;
+  console.log(selecteValue);
+  localStorage.setItem('quantitéChoisi', selecteValue);
+  document.location.reload
 }
 qtValue();
 
 
 
+//Envoyer les données au localstorage avec onclick
 
+const local = JSON.parse(localStorage.getItem("peluche"));
+bouton.onclick = () =>{
+ const peluche = {
+   nom: produitName.value,
+   prix: produitPrice.value,
+   image: produitImage.value
+ };
 
-
-
+ localStorage.setItem("peluche", JSON.stringify(peluche));
+}
 
 
 
