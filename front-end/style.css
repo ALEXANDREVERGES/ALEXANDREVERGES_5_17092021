@@ -48,7 +48,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-#produitImage{
+#productImage{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -217,7 +217,7 @@ section{
     line-height: 1em;
   }
   
-#produit{
+#product{
     height: 580px;
 }
 .contact{
@@ -247,7 +247,7 @@ section{
     }
 }
 @media screen and (min-width: 430px) and (max-width: 600px){
-    #produit{
+    #product{
         height: 610px;
     }
     .carte1{
@@ -273,7 +273,7 @@ section{
     .section1{
         height: 800px;
     }
-    #produit{
+    #product{
         height: 660px;
     }
     .carte1{
@@ -321,7 +321,7 @@ section{
     .section1{
         height: 800px;
     }
-    #produit{
+    #product{
         height: 740px;
     }
     .carte1{

@@ -1,4 +1,5 @@
 
+
 fetch('http://localhost:3000/api/teddies')
 .then((res) => res.json())
 .then ((data) => {
@@ -31,14 +32,14 @@ function addCards(data) {
             </a>
         </div>`;
 }
-}
+};
 //Animation des titres
 var textWrapper = document.querySelector('.ml7 .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
 
 anime.timeline({loop: true})
   .add({
-    targets: '.ml7 .letter',
+   targets: '.ml7 .letter',
     translateY: ["1.1em", 0],
     translateX: ["0.55em", 0],
     translateZ: 0,
@@ -51,5 +52,5 @@ anime.timeline({loop: true})
     opacity: 0,
     duration: 1000,
     easing: "easeOutExpo",
-    delay: 1000
+   delay: 1000
   });
