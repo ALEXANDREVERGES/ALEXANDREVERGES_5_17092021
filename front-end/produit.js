@@ -6,91 +6,117 @@ const newId = searchParams.get("_id");
 const newUrl = `http://localhost:3000/api/teddies/${newId}`;
 
 fetch(newUrl)
-    .then((response) => response.json())
-    .then((data) => {
-        const produit = data;
-        addCards(data);
-       
+.then((response) => response.json())
+.then((data) => {
+	console.log(data);
+	console.log(data.name);
+    const product = data;	
+    addCard(data);
+    addColors(data);
+    // fonction pour la création de la card de la page produit
+    function addCard(product) {
 
-// fonction pour la création de la carte de la page produit
-        function addCards(produit) {
-
-// insertion des informations des cartes sur la page web
-            const selectionProduitImage = document.getElementById("produitImage");
-            selectionProduitImage.innerHTML += `
-        <img src="${produit.imageUrl}" class="img1" alt="${produit.name}">
+        // insertion des information de la card du produit
+        const selectionProductImage = document.getElementById("productImage");
+            selectionProductImage.innerHTML += `
+        <img src="${product.imageUrl}" class="img1" alt="${product.name}">
         `;
-            const selectionProduitName = document.getElementById("produitName");
-            selectionProduitName.innerHTML += `
-        <h5 class="name1">${produit.name}</h5>
+            const selectionProductName = document.getElementById("productName");
+            selectionProductName.innerHTML += `
+        <h5 class="name1">${product.name}</h5>
         `;
-            const selectionProduitPrice = document.getElementById("produitPrice");
-            selectionProduitPrice.innerHTML += `
-         <h5 class="text_info1">Prix : ${produit.price /100},00€</h5>
+            const selectionProductPrice = document.getElementById("productPrice");
+            selectionProductPrice.innerHTML += `
+         <h5 class="text_info1">Prix : ${product.price /100},00€</h5>
         `;
-            const selectionProduitDescription = document.getElementById("produitDescription");
-            selectionProduitDescription.innerHTML += `
-        <p class="text_info1">${produit.description}</p>
+            const selectionProductDescription = document.getElementById("productDescription");
+            selectionProductDescription.innerHTML += `
+        <p class="text_info1">${product.description}</p>
         `;   
-            const colors = document.getElementById("produitColors");
-            const selectionProduitColors = document.getElementById("produitColors");
-            for (let c = 0; c < produit.colors.length; c++){
-            selectionProduitColors.innerHTML +=`
-            <select>
-            <option select="selected" value=""></option> 
-            <option value"${c}">${produit.colors[c]}</option>            
-            </select>
-            </div> `;          
-}}
-});    
+    }
 
-//PANIER
-
-//Récupération données sélectionnées par l'utilisateur au click avec onchange
-//et envoie au localstorage lors du choix
-
-function getSelectValue() {
-  var selectedValue = document.getElementById("produitColors").value;
-  console.log(selectedValue);
-  localStorage.setItem('couleurChoisi', selectedValue);
-  document.location.reload
-}
-getSelectValue();
-
-function qtValue() {
-  var selecteValue = document.getElementById("quantity").value;
-  console.log(selecteValue);
-  localStorage.setItem('quantitéChoisi', selecteValue);
-  document.location.reload
-}
-qtValue();
+    // fonction pour l'ajout de la couleur du produit
+    function addColors(product) {
+        const versionChoice = document.getElementById("option");
+        for (let colors of product.colors) {
+            versionChoice.innerHTML += `<option value="${colors}">${colors}</option>`;
+        }
+    }
 
 
+    // ajout du produit dans le panier
+    const buttonAddBasket = document.getElementById("btnAddBasket");
+    buttonAddBasket.addEventListener("click", (e) => {
+        e.preventDefault();
+        
+        const list = document.getElementById("option");
+        const quantity = document.getElementById("quantity");
+        
+        // créer un nouveau produit
+       
+     let objectProduct = new Product(
+            newId,
+            product.name,
+            product.description,
+            product.price,
+            list.value,
+            quantity.value,
+            product.imageUrl
+        );
+        
+        // vérifie s'il est déja présent
+        // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
+        let isAlreadyPresent;
+        let indexModification;
+        for (products of basket) {
+            if (products.name == objectProduct.name && products.option == objectProduct.option) {
+                isAlreadyPresent = true;
+                indexModification = basket.indexOf(products);
+            } else {
+                isAlreadyPresent = false;
+            }
+        }
 
-//Envoyer les données au localstorage avec onclick
+        // si déjaPresent incrémente seulement la quantité
+        if (isAlreadyPresent) {
+            basket[indexModification].quantity =
+                +basket[indexModification].quantity + +objectProduct.quantity;
+            localStorage.setItem("teddies", JSON.stringify(basket));
+            // si non, ajoute le produit au localStorage
+        } else {
+            basket.push(objectProduct);
+            localStorage.setItem("teddies", JSON.stringify(basket));
+        }
+        basketPreview();
 
-const local = JSON.parse(localStorage.getItem("peluche"));
-bouton.onclick = () =>{
- const peluche = {
-   nom: produitName.value,
-   prix: produitPrice.value,
-   image: produitImage.value
- };
+        modalAddProductToBasket(data);
 
- localStorage.setItem("peluche", JSON.stringify(peluche));
-}
-
-
-
-
-
-
-
-
-
-
-
-
+        // Afichage du modal pour confirmer l'adoption du produitchoisi
+        function modalAddProductToBasket(product){
+            const productAlertMessage = document.getElementById("modal-dialog");
+            productAlertMessage.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header" >
+                    <h3 class="modal-title h5" id="exampleModalLabel">L'achat de ${product.name}</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="${product.imageUrl}"  alt="${product.name}" class="w-100">
+                    <hr>
+                    Vous avez décidé d'acheter <strong>${quantity.value}</strong> ourson <strong>${product.name}</strong>
+                    de couleur <strong>${list.value}</strong>
+                    pour un montant de <strong>${convertPrice(quantity.value * product.price)}</strong>
+                </div>
+                <div class="modal-footer">
+                
+                    <a href="index.html" class="btn btn--success" >Continuer mes achats</a>
+                    <a href="panier.html" class="btn btn--cancel " >Voir mon panier</a>
+                    
+                </div>
+            </div>`  
+        }
+    });
+})
 
 //---------------ANIMATION TITRES---------------------------------------//
 // Wrap every letter in a span

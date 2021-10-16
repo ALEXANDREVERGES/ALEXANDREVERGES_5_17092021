@@ -91,11 +91,17 @@ a{
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
     border-radius: 5%;
 }
+#productImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .img1{
     width: 80%;
     border-radius: 10%;
     margin-top: -60px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
+    margin-bottom: 30px;
 }
 .carte{
     display: flex;
