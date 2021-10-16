@@ -13,6 +13,7 @@ fetch(newUrl)
     const product = data;	
     addCard(data);
     addColors(data);
+    addToCart();
     // fonction pour la création de la card de la page produit
     function addCard(product) {
 
@@ -42,82 +43,62 @@ fetch(newUrl)
             versionChoice.innerHTML += `<option value="${colors}">${colors}</option>`;
         }
     }
+    const productCardImg = document.querySelector("#productImage");
+    const productCardName = document.querySelector("#productName");
+    const productCardPrice = document.querySelector("#productPrice");
+    const bearNumber = document.querySelector("#bearNum");
+    const colorSelect = document.querySelector("#color-select");
 
-
-    // ajout du produit dans le panier
-    const buttonAddBasket = document.getElementById("btnAddBasket");
-    buttonAddBasket.addEventListener("click", (e) => {
-        e.preventDefault();
+    function addToCart() {
+        const addToCartBtn = document.querySelector(".add-to-cart");
+        const confirmation = document.querySelector(".added-to-cart-confirmation");
+        const textConfirmation = document.querySelector(".confirmation-text");
         
-        const list = document.getElementById("option");
-        const quantity = document.getElementById("quantity");
-        
-        // créer un nouveau produit
-       
-     let objectProduct = new Product(
-            newId,
-            product.name,
-            product.description,
-            product.price,
-            list.value,
-            quantity.value,
-            product.imageUrl
-        );
-        
-        // vérifie s'il est déja présent
-        // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
-        let isAlreadyPresent;
-        let indexModification;
-        for (products of basket) {
-            if (products.name == objectProduct.name && products.option == objectProduct.option) {
-                isAlreadyPresent = true;
-                indexModification = basket.indexOf(products);
-            } else {
-                isAlreadyPresent = false;
-            }
-        }
-
-        // si déjaPresent incrémente seulement la quantité
-        if (isAlreadyPresent) {
-            basket[indexModification].quantity =
-                +basket[indexModification].quantity + +objectProduct.quantity;
-            localStorage.setItem("teddies", JSON.stringify(basket));
-            // si non, ajoute le produit au localStorage
-        } else {
-            basket.push(objectProduct);
-            localStorage.setItem("teddies", JSON.stringify(basket));
-        }
-        basketPreview();
-
-        modalAddProductToBasket(data);
-
-        // Afichage du modal pour confirmer l'adoption du produitchoisi
-        function modalAddProductToBasket(product){
-            const productAlertMessage = document.getElementById("modal-dialog");
-            productAlertMessage.innerHTML = `
-            <div class="modal-content">
-                <div class="modal-header" >
-                    <h3 class="modal-title h5" id="exampleModalLabel">L'achat de ${product.name}</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="${product.imageUrl}"  alt="${product.name}" class="w-100">
-                    <hr>
-                    Vous avez décidé d'acheter <strong>${quantity.value}</strong> ourson <strong>${product.name}</strong>
-                    de couleur <strong>${list.value}</strong>
-                    pour un montant de <strong>${convertPrice(quantity.value * product.price)}</strong>
-                </div>
-                <div class="modal-footer">
-                
-                    <a href="index.html" class="btn btn--success" >Continuer mes achats</a>
-                    <a href="panier.html" class="btn btn--cancel " >Voir mon panier</a>
-                    
-                </div>
-            </div>`  
-        }
-    });
-})
-
+        addToCartBtn.addEventListener("click", () => {
+          if (bearNumber.value > 0 && bearNumber.value < 100) {
+            // ------ Création du produit qui sera ajouté au panier
+            let productAdded = {
+              image: productCardImg.innerHTML,
+              nom: productCardName.innerHTML,
+              price: productCardPrice.innerHTML,
+              quantity: parseFloat(document.querySelector("#bearNum").value),
+              couleur: document.querySelector("#option").value,
+            };
+            // ----------------- Gestion du localStorage
+      let arrayProductsInCart = [];     
+      // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
+      if (localStorage.getItem("products") !== null) {
+        arrayProductsInCart = JSON.parse(localStorage.getItem("products"));        
+        // Si le Localstorage est vide, on le crée avec le produit ajouté
+      } 
+        arrayProductsInCart.push(productAdded);
+        localStorage.setItem("products", JSON.stringify(arrayProductsInCart));    
+// Message lors d'un ajout au panier
+      confirmation.style.visibility = "visible";
+      textConfirmation.style.background = "green";
+      textConfirmation.style.border = "green";
+      textConfirmation.style.color = "white";
+      textConfirmation.style.textAlign = "center";
+      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;     
+    } else {
+      confirmation.style.visibility = "visible";
+      textConfirmation.style.background = "red";
+      textConfirmation.style.border = "red";
+      textConfirmation.style.color = "white";
+      textConfirmation.style.whiteSpace = "normal";
+      textConfirmation.style.textAlign = "center";
+      textConfirmation.innerText = `La quantité doit être comprise entre 1 et 5`;
+    }
+  });
+}
+const quantitéPanier = () => {
+    let quantitéPanier = document.getElementById('quantitéPanier');
+    let Count = localStorage.getItem("quantity");
+    Count ++;
+    localStorage.setItem('quantity', Count);
+    quantitéPanier.innerHTML = `${Count}`
+}
+});
 //---------------ANIMATION TITRES---------------------------------------//
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml7 .letters');
