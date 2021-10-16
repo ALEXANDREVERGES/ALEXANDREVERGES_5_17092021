@@ -1,5 +1,3 @@
-
-
 fetch('http://localhost:3000/api/teddies')
 .then((res) => res.json())
 .then ((data) => {
@@ -15,9 +13,9 @@ function addCards(data) {
  //boucle pour chaque iteration d'un produit
     for (produit of data) {
 //recupère l'élément liste dans le HTML
-        const cards = document.getElementById("article");
+        const lescards = document.getElementById("article");
 // insertion sur la page web        
-        cards.innerHTML += `
+        lescards.innerHTML += `
         <div class="container">            
                 <div class="carte">
                 <a href="produit.html?_id=${produit._id}">

@@ -51,51 +51,46 @@ function addColors(product) {
 //PANIER
 //ajouter le produit dans le panier
 
-const buttonAddBasket = document.getElementById("btnAddBasket");
-buttonAddBasket.addEventListener("click", (e) => {
-  e.preventDefault();       
-  const list = document.getElementById("option");
-  const quantity = document.getElementById("quantity");
+const btnAddBasket = document.getElementById("btnAddBasket");
+btnAddBasket.addEventListener("click", (e) => {
+    e.preventDefault();
+    const list = document.getElementById("option");
+    const quantity = document.getElementById("quantity");
 
-// créer un nouveau produit
-let objectProduct = new Product(
-  newId,
-  product.name,
-  product.description,
-  product.price,
-  list.value,
-  quantity.value,
-  product.imageUrl
-);
-// vérifie s'il est déja présent
-// si oui, deja Present en true et sauvegarde sa place dans le localStorage
-let isAlreadyPresent;
-let indexModification;
-for (products of basket) {
-if (products.name == objectProduct.name && products.option == objectProduct.option) {    
-    isAlreadyPresent = true;
-    indexModification = basket.indexOf(products);}
-else {
-    isAlreadyPresent = false;}            
-}
-// si déja Present incrémente seulement la quantité
-if (isAlreadyPresent) {
-    basket[indexModification].quantity =
-      +basket[indexModification].quantity + +objectProduct.quantity;
-    localStorage.setItem("teddies", JSON.stringify(basket));}
-// si non, ajoute le produit au localStorage
-else {
-    basket.push(objectProduct);
-    localStorage.setItem("teddies", JSON.stringify(basket));}       
-basketPreview();
-})
-.catch(e => {
-const card = document.getElementById("product");   
-card.style.display = "none";
-document.querySelector(".error").innerHTML += `
-<h1 class=""><b>"Le produit demandé est introuvable "<b></h1>
-`;
-})});
+    // créer un nouveau produit
+    let objectProduct = new Product(
+        newId,
+        product.name,
+        product.description,
+        product.price,
+        list.value,
+        quantity.value,
+        product.imageUrl
+    );
+    // vérifie s'il est déja présent
+    // si oui, dejaPresent en true et sauvegarde sa place dans le localStorage
+    let isAlreadyPresent = false;
+    let indexModification;
+    for (products of basket) {
+        switch (products.option) {
+            case objectProduct.option:
+                isAlreadyPresent = true;
+                indexModification = basket.indexOf(products);
+        }
+    }
+
+    // si déjaPresent incrémente seulement la quantité
+    if (isAlreadyPresent) {
+        basket[indexModification].quantity =
+            +basket[indexModification].quantity + +objectProduct.quantity;
+        localStorage.setItem("cameras", JSON.stringify(basket));
+        // si non, ajoute le produit au localStorage
+    } else {
+        basket.push(objectProduct);
+        localStorage.setItem("cameras", JSON.stringify(basket));
+    }
+});
+});
 
 
 
