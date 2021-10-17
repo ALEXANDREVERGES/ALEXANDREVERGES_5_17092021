@@ -66,11 +66,10 @@ fetch(newUrl)
             };
             // ----------------- Gestion du localStorage
       let arrayProductsInCart = [];     
-      // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
+// Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
       if (localStorage.getItem("products") !== null) {
-        arrayProductsInCart = JSON.parse(localStorage.getItem("products"));        
-        // Si le Localstorage est vide, on le crée avec le produit ajouté
-      } 
+        arrayProductsInCart = JSON.parse(localStorage.getItem("products")); }         
+        // Si le Localstorage est vide, on le crée avec le produit ajouté    
         arrayProductsInCart.push(productAdded);
         localStorage.setItem("products", JSON.stringify(arrayProductsInCart));    
 // Message lors d'un ajout au panier
@@ -79,7 +78,7 @@ fetch(newUrl)
       textConfirmation.style.border = "green";
       textConfirmation.style.color = "white";
       textConfirmation.style.textAlign = "center";
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} nounours à votre panier !`;     
+      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;     
     } else {
       confirmation.style.visibility = "visible";
       textConfirmation.style.background = "red";
@@ -91,13 +90,8 @@ fetch(newUrl)
     }
   });
 }
-const quantitéPanier = () => {
-    let quantitéPanier = document.getElementById('quantitéPanier');
-    let Count = localStorage.getItem("quantity");
-    Count ++;
-    localStorage.setItem('quantity', Count);
-    quantitéPanier.innerHTML = `${Count}`
-}
+
+
 });
 //---------------ANIMATION TITRES---------------------------------------//
 // Wrap every letter in a span
