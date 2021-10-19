@@ -38,7 +38,6 @@
         <div class="acceuil">
             <a href="index.html"><div class="title">Orinoco</div></a>             
           <div class="panier">
-            <i class="fas fa-shopping-bag"></i>
            <a id="basketPreview" href="panier.html"class="panier_text">PANIER</a>
             </div>
         </div>
@@ -56,10 +55,18 @@
 <div class="error"></div>
         <section id="error" class="section1">
             <div class="carte1 ">
-                <div class="" id="">
+                <div class="" id=""> 
+
+                    <div id="productImage"></div>
+                    <div class="containerAll">
+                    <div class="containerPrix">  
                     <div class="name" id="productName"></div>
-                    <div class="" id="productImage"></div>
-                                <div class="" id="productPrice"></div>                                                           
+                    <div class="prix text_info1">
+                        <div class="prix">Prix:</div>
+                                <div class="text_info1" id="productPrice"></div>
+                            </div>  
+                            </div> 
+                        </div>                                                         
                             <div class="" id="productDescription"></div>
                             <div class="center">   
                                 <div class="text_info2">Choisir la couleur :</div>
@@ -82,7 +89,7 @@
                             </div>
                         <div class="center">
                             <a href="index.html"><button class="btn_ajout margin" type="button" >Retour boutique</button></a>                        
-                            <button class="add-to-cart" >Ajouter au panier</button>
+                            <button class="add-to-cart btn_ajout" >Ajouter au panier</button>
                         </div>
                 </div>  
             </div>                      
@@ -101,9 +108,10 @@
     </footer>
 
 
-<script src="front-end/index.js"></script>    
-<script src="front-end/produit.js"></script>
-<script src="front-end/panier.js"></script>
+    <script src="./front-end/JS/index.js"></script>
+    <script src="./front-end/JS/panier.js"></script>    
+    <script src="./front-end/JS/produit.js"></script>  
+    
 
 </body>
 

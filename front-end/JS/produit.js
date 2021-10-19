@@ -8,8 +8,7 @@ const newUrl = `http://localhost:3000/api/teddies/${newId}`;
 fetch(newUrl)
 .then((response) => response.json())
 .then((data) => {
-	console.log(data);
-	console.log(data.name);
+	
     const product = data;	
     addCard(data);
     addColors(data);
@@ -17,19 +16,16 @@ fetch(newUrl)
     // fonction pour la création de la card de la page produit
     function addCard(product) {
 
-        // insertion des information de la card du produit
+        // insertion des information de la card du produit   
+        const selectionProductName = document.getElementById("productName");
+            selectionProductName.innerHTML += `${product.name}`;
+
         const selectionProductImage = document.getElementById("productImage");
-            selectionProductImage.innerHTML += `
-        <img src="${product.imageUrl}" class="img1" alt="${product.name}">
-        `;
-            const selectionProductName = document.getElementById("productName");
-            selectionProductName.innerHTML += `
-        <h5 class="name1">${product.name}</h5>
-        `;
+            selectionProductImage.innerHTML += `<img  class="img1"  src="${product.imageUrl}">` 
+         
             const selectionProductPrice = document.getElementById("productPrice");
-            selectionProductPrice.innerHTML += `
-         <h5 class="text_info1">Prix : ${product.price /100},00€</h5>
-        `;
+            selectionProductPrice.innerHTML += `${product.price /100},00€`;
+
             const selectionProductDescription = document.getElementById("productDescription");
             selectionProductDescription.innerHTML += `
         <p class="text_info1">${product.description}</p>
@@ -58,20 +54,21 @@ fetch(newUrl)
           if (bearNumber.value > 0 && bearNumber.value < 100) {
             // ------ Création du produit qui sera ajouté au panier
             let productAdded = {
-              image: productCardImg.innerHTML,
+              //image: productCardImg.innerHTML,
               nom: productCardName.innerHTML,
               price: productCardPrice.innerHTML,
               quantity: parseFloat(document.querySelector("#bearNum").value),
               couleur: document.querySelector("#option").value,
             };
             // ----------------- Gestion du localStorage
-      let arrayProductsInCart = [];     
-// Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayProductsInCart, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
-      if (localStorage.getItem("products") !== null) {
-        arrayProductsInCart = JSON.parse(localStorage.getItem("products")); }         
+      let arrayPeluche = [];     
+// Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayPeluche, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
+      if (localStorage.getItem("peluche") !== null) {
+        arrayPeluche = JSON.parse(localStorage.getItem("peluche")); }         
         // Si le Localstorage est vide, on le crée avec le produit ajouté    
-        arrayProductsInCart.push(productAdded);
-        localStorage.setItem("products", JSON.stringify(arrayProductsInCart));    
+        arrayPeluche.push(productAdded);
+        localStorage.setItem("peluche", JSON.stringify(arrayPeluche)); 
+        console.log(arrayPeluche); 
 // Message lors d'un ajout au panier
       confirmation.style.visibility = "visible";
       textConfirmation.style.background = "green";

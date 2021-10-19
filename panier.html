@@ -40,14 +40,21 @@
             <a href="index.html"><div class="title">Orinoco</div></a>            
             <div class="panier">
                 <div id="panier"></div>
-                <a href="panier.html"><div class="panier_text">PANIER</div></a>
-                <h4></h4>
+                <a href="panier.html" id="basketPreview" class="panier_text">PANIER</a>
+               
             </div>
         </div>
     </div>
     </header>
+    <h1 class="ml7">
+        <span class="text-wrapper center">
+          <span class="letters center">Votre - panier !</span>
+        </span>
+      </h1>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
  <section>
-     
+     <div id="panierVide"></div>
+     <span id="containerArticle"></span>
  </section>
     <!--Footer-->
     <footer class="foot">
@@ -62,8 +69,11 @@
 
 
 -->
-<script src="front-end/panier.js"></script>
-<script src="front-end/produit.js"></script>
+ 
+<script src="./front-end/JS/index.js"></script>
+<script src="./front-end/JS/panier.js"></script>    
+<script src="./front-end/JS/produit.js"></script>  
+
 </body>
 
 </html>

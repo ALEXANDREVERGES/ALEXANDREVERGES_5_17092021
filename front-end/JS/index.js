@@ -1,10 +1,8 @@
 
 fetch('http://localhost:3000/api/teddies')
 .then((res) => res.json())
-.then ((data) => {
-    console.log(data);
-    const produit = data;
-    console.log(produit);
+.then ((data) => { 
+    const produit = data;   
     addCards(data);
 });
 
