@@ -55,11 +55,13 @@ fetch(newUrl)
             // ------ Création du produit qui sera ajouté au panier
             let productAdded = {
               //image: productCardImg.innerHTML,
-              nom: productCardName.innerHTML,
-              price: productCardPrice.innerHTML,
-              quantity: parseFloat(document.querySelector("#bearNum").value),
-              couleur: document.querySelector("#option").value,
+              idNom: productCardName.innerHTML,
+              idPrice: productCardPrice.innerHTML,
+              idQuantity: parseFloat(document.querySelector("#bearNum").value),
+              idCouleur: document.querySelector("#option").value,
             };
+            
+
             // ----------------- Gestion du localStorage
       let arrayPeluche = [];     
 // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayPeluche, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
@@ -75,7 +77,8 @@ fetch(newUrl)
       textConfirmation.style.border = "green";
       textConfirmation.style.color = "white";
       textConfirmation.style.textAlign = "center";
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;     
+      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;   
+      
     } else {
       confirmation.style.visibility = "visible";
       textConfirmation.style.background = "red";
@@ -84,7 +87,9 @@ fetch(newUrl)
       textConfirmation.style.whiteSpace = "normal";
       textConfirmation.style.textAlign = "center";
       textConfirmation.innerText = `La quantité doit être comprise entre 1 et 5`;
+      
     }
+    
   });
 }
 
