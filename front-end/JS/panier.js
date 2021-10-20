@@ -30,22 +30,10 @@ console.log(myObj_deserialized);
          panierVide.innerHTML = structurePanier;
      }
  }
- //ajout du bouton supprimer, pour effacer les articles dans le panier
- //let btnSupprimer = document.querySelectorAll(".btnSupprimer");
- //for (let l = 0; l < btnSupprimer.length; l++){
-  //   btnSupprimer[l].addEventListener("click", (e) => {
-  //       e.preventDefault();
- //        let id_selectionner_supression = myObj_deserialized[l].idNom;
-//         console.log(id_selectionner_supression)
-// })}
 
-let btnSupprimer = document.querySelectorAll(".btnSupprimer");
-btnSupprimer.addEventListener("click", () =>{
-    if (myObjPanier[index].quantity > 1) {
-        myObjPanier[index].quantity--;
-    } else {
-        myObjPanier.splice(index, 1);
-    }
-    localStorage.setItem("peluche", JSON.stringify(myObjPanier));
-    location.reload();
-})
+
+const btnSupprimer = document.querySelector(".btnSupprimer");
+btnSupprimer.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
