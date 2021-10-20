@@ -15,6 +15,7 @@ function addCards(data) {
         const cards = document.getElementById("article");
 // insertion sur la page web        
         cards.innerHTML += `
+        
         <div class="container">            
                 <div class="carte">
                 <a href="produit.html?_id=${produit._id}">
@@ -27,7 +28,8 @@ function addCards(data) {
                     </div>
                 </div>
             </a>
-        </div>`;
+        </div>
+        `;
 }
 }
 //Animation des titres

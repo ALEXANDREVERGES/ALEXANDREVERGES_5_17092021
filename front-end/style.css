@@ -100,11 +100,11 @@ img{
     justify-content: center;
 }
 .img1{
-    width: 80%;
+    width: 70%;
     border-radius: 10%;
     margin-top: -60px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
-    margin-bottom: 30px;
+    
 }
 .carte{
     display: flex;
@@ -122,7 +122,7 @@ img{
     display: flex;
     width: 80%;
     align-items: center;
-    height: 600px;
+    height: 800px;
     background: rgb(155,155,235);
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
     border-radius: 10%;
@@ -359,7 +359,7 @@ input{
         display: flex;
         width: 80%;
         align-items: center;
-        height: 680px;
+        height: 700px;
         background: rgb(155,155,235);
         background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
         border-radius: 10%;
@@ -540,7 +540,8 @@ input{
 }
 @media screen and (min-width: 1401px) and (max-width: 1650px){
     .img{
-        width: 60%;
+        width: 70%;
+        height: 280px;
     }
     .carte{
         display: flex;
@@ -566,6 +567,7 @@ input{
 @media screen and (min-width: 1651px) and (max-width: 1800px){
     .img{
         width: 70%;
+        height: 300px;
     }
     .carte{
         display: flex;
@@ -589,8 +591,12 @@ input{
 
 }
 @media screen and (min-width: 1801px) and (max-width: 2800px){
+    #article{
+        height: 1000px;
+    }
     .img{
-        width: 60%;
+        width: 80%;
+        height: 300px;
     }
     .carte{
         display: flex;
@@ -602,8 +608,9 @@ input{
         border-radius: 5%;
         color: white;
     } 
+    
     .container{
-        width: 40%;
+        width: 30%;
     }
     .text_info{
         width: 100%;    

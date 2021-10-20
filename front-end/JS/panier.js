@@ -6,7 +6,7 @@ let myObj_deserialized = JSON.parse(localStorage.getItem("produitPanier"));
 console.log(myObj_deserialized);
 
 
-//annoncé si le panier est vide 
+//annoncé si le panier est vide + photo
  if(myObj_deserialized === null){
      const panierVide = document.getElementById("panierVide");
       panierVide.innerHTML =`<div class="containerPanier">
@@ -14,7 +14,7 @@ console.log(myObj_deserialized);
       <div class="text_info3">Votre Panier est vide !</div>
       </div>`
  }
- //afficher les produits du panier
+ //afficher les produits du panier + formulaire
  else{
      let structurePanier = [];
      for(k = 0; k < produitPanier.length;k++){
@@ -26,6 +26,9 @@ console.log(myObj_deserialized);
         <div class="eltForm">
         
         <div >
+       
+
+        <!---------- formulaire ------->
         <form class="form">
         <h2>Votre adresse de livraison</h2>
             <div class="">
@@ -86,8 +89,7 @@ console.log(myObj_deserialized);
          panierVide.innerHTML = structurePanier;
      }
  }
-
-
+ //bouton pour supprimer les articles du panier 
 const btnSupprimer = document.querySelector(".btnSupprimer");
 btnSupprimer.addEventListener("click", () => {
   localStorage.clear();
