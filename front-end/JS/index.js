@@ -4,6 +4,7 @@ fetch('http://localhost:3000/api/teddies')
 .then ((data) => { 
     const produit = data;   
     addCards(data);
+    slide(data)
 });
 
 
@@ -32,6 +33,7 @@ function addCards(data) {
         `;
 }
 }
+
 //Animation des titres
 var textWrapper = document.querySelector('.ml7 .letters');
 textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
