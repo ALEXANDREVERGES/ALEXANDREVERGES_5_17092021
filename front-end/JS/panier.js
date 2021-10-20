@@ -22,6 +22,62 @@ console.log(myObj_deserialized);
         <div class="container_panier">
         <div class="produitPanier">${myObj_deserialized}<button class="btnSupprimer">Supprimer</button></div>
         </div>
+        <div class="container_form">
+        <div class="eltForm">
+        
+        <div >
+        <form class="form">
+        <h2>Votre adresse de livraison</h2>
+            <div class="">
+                <div class="bold" id="">
+                    <label for="name">Prénom* :</label>
+                    <input type="text" placeholder="Prénom" id="" name="user_name" required> 
+                </div><br>
+                <div class="bold" id="">
+                    <label for="lastname">Nom* :</label>
+                    <input type="text" placeholder="Nom" id="" name="user_lastname" required>
+                </div>
+            </div> <br>       
+            <div class="">
+                <div class="bold" id="">
+                    <label for="postal">Code postal* :</label>
+                    <input type="text" placeholder="Code postal" id="" name="user_postal" required>
+                </div><br>
+                <div class="bold" id="">
+                    <label for="city">Ville* :</label>
+                    <input type="text" placeholder="Ville" id="" name="user_city" required>
+                </div>
+            </div><br>
+            <div class="bold" id="">
+                <label for="adress">Adresse* :</label>
+                <input type="text" placeholder="Adresse de livraison" id="" name="user_adress" required>
+            </div><br>
+            <div class="bold" id="">
+                <label for="mail">Adresse mail* :</label>
+                <input type="email" placeholder="Adresse@mail" id="" name="user_mail" required>
+            </div><br>
+            <div class="bold" id="">
+                <label for="phone" >N° de téléphone* :</label>
+                <input type="tel" placeholder="Numéro de téléphone" id="" name="phone" required >
+            </div><br>
+            <div class="containerRemplir">
+            <div class="remplir">*à remplir obligatoirement</div>
+            </div>
+            <br><div></div>
+            <div class="containerCommander">
+                    <button id="" class="" >Commander</button>
+            </div>
+            </div>
+        </form>
+
+        <div class="">
+            <p class=""></p>
+        </div>
+        
+        
+    </div>
+</div>
+</div>
         `;
        
            

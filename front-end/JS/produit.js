@@ -36,7 +36,7 @@ fetch(newUrl)
     function addColors(product) {
         const versionChoice = document.getElementById("option");
         for (let colors of product.colors) {
-            versionChoice.innerHTML += `<option value="${colors}">${colors}</option>`;
+            versionChoice.innerHTML += `<option class="btn_ajout" value="${colors}">${colors}</option>`;
         }
     }
     const productCardImg = document.querySelector("#productImage");
@@ -78,8 +78,8 @@ fetch(newUrl)
       textConfirmation.style.color = "white";
       textConfirmation.style.textAlign = "center";
       textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;   
-      
-    } else {
+    } 
+    else {
       confirmation.style.visibility = "visible";
       textConfirmation.style.background = "red";
       textConfirmation.style.border = "red";

@@ -92,7 +92,7 @@ a{
     border-radius: 5%;
 }
 img{
-    width: 50%;
+    width: 30%;
 }
 #productImage{
     display: flex;
@@ -209,8 +209,24 @@ section{
     align-items: center;
     justify-content: center;
     height: 30px;
+    border-radius: 10px;
+    
 }
+.btn_ajout:hover{
+    cursor: pointer;
+    background-color:rgb(36, 35, 82);
+    color: white;
+    box-shadow: -3px 1px 13px 0px rgba(white);
+}
+h2{
+    margin-bottom: 50px;
+}
+.containerCommander{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
 .ml7 {
     display: flex;
     justify-content: center;
@@ -231,7 +247,7 @@ section{
     display: inline-block;
     line-height: 1em;
   }
-  
+ 
 #produit{
     height: 580px;
 }
@@ -273,6 +289,47 @@ section{
     color: black;
     font-size: 20px;
     font-weight: bold;
+}
+.bold{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    
+}
+input{
+    border-radius: 10px;
+    height: 25px;
+}
+#panierVide{
+    margin-top: 0px;
+}
+.eltForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.pagePanier{
+    height: 1100px;
+}
+.container_form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.form{
+    height: 500px;
+   width: 400px;
+    display: flex;
+   justify-content: center;
+   background: rgb(155,155,235);
+   padding: 20px;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
+    
 }
 @media screen and (max-width: 370px){
     .img1{
