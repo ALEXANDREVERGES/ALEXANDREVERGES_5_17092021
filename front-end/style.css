@@ -28,6 +28,7 @@ body{
 }
 .panier{
     display: flex;
+    font-family: 'Monoton', cursive;
     justify-content: space-around;
     font-size: 25px;
     margin-left: 15px;
@@ -346,7 +347,7 @@ input{
     left: 70%;
     font-weight: bold;
     transform: translate(-50%, -50%);
-    font-size: 60px;
+    font-size: 50px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
     background: rgb(155,155,235);
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
