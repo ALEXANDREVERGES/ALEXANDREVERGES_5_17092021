@@ -25,61 +25,7 @@ let myObj_deserialized = JSON.parse(localStorage.getItem("produitPanier"));
         <div class="container_panier">
         <div class="produitPanier">${myObj_deserialized}<button class="btnSupprimer">Supprimer</button></div>
         </div>
-        <div class="container_form">
-        <div class="eltForm">
-        
-        <div >
-       
 
-        <!---------- formulaire ------->
-        <form onsubmit="valideForm()" name="form"  class="form">
-        <h2>Votre adresse de livraison</h2>
-            <div class="">
-                <div class="bold" id="">
-                <label for="name">Prénom* :</label>
-                    <input  type="text" placeholder="Prénom" id="user_name" name="user_name" > 
-                </div><br>
-                <div class="bold" id="">
-                    <label for="lastname">Nom* :</label>
-                    <input type="text" placeholder="Nom" id="user_lastname" name="user_lastname" >
-                </div>
-            </div> <br>       
-            <div class="">
-                <div class="bold" id="">
-                    <label for="postal">Code postal* :</label>
-                    <input type="text" placeholder="Code postal" id="user_postal" name="user_postal" >
-                </div><br>
-                <div class="bold" id="">
-                    <label for="city">Ville* :</label>
-                    <input type="text" placeholder="Ville" id="user_city" name="user_city">
-                </div>
-            </div><br>
-            <div class="bold" id="">
-                <label for="adress">Adresse* :</label>
-                <input type="text" placeholder="Adresse de livraison" id="user_adress" name="user_adress" >
-            </div><br>
-            <div class="bold" id="">
-                <label for="mail">Adresse mail* :</label>
-                <input type="email" placeholder="Adresse@mail" id="user_mail" name="user_mail" >
-            </div><br>
-            <div class="bold" id="">
-                <label for="phone" >N° de téléphone* :</label>
-                <input type="tel" placeholder="Numéro de téléphone" id="phone" name="phone" >
-            </div><br>
-            <div class="containerRemplir">
-            <div class="remplir">*à remplir obligatoirement</div>
-            </div>
-            <br><div></div>
-            <div class="containerCommander">
-                <a href="order.html"><button class="btnEnvoieForm">Commander</button></a>
-                    
-
-            </div>
-            </div>
-        </form>
-    </div>
-</div>
-</div>
         `;
        
            
