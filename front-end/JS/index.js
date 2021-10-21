@@ -1,10 +1,11 @@
+const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
 fetch('http://localhost:3000/api/teddies')
 .then((res) => res.json())
 .then ((data) => { 
     const produit = data;   
     addCards(data);
-    slide(data)
+    
 });
 
 
