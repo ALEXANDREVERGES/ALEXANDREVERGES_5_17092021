@@ -25,6 +25,60 @@ let myObj_deserialized = JSON.parse(localStorage.getItem("produitPanier"));
         <div class="container_panier">
         <div class="produitPanier">${myObj_deserialized}<button class="btnSupprimer">Supprimer</button></div>
         </div>
+        <div class="container_form">
+        <div class="eltForm">
+        
+        <div >
+        <!---------- formulaire ------->
+        <form onsubmit="return valideForm()" action="order.html" name="form"  class="form">
+            <h2>Votre adresse de livraison</h2>
+                <div class="">
+                    <div class="bold" id="">
+                    <label for="name">Prénom* :</label>
+                        <input  type="text" placeholder="Prénom" id="user_name" name="user_name" pattern="[A-Za-z]{1,}" required> 
+                    </div><br>
+                    <div class="bold" id="">
+                        <label for="lastname">Nom* :</label>
+                        <input type="text" placeholder="Nom" id="user_lastname" name="user_lastname"pattern="[A-Za-z]{1,}" required>
+                    </div>
+                </div> <br>       
+                <div class="">
+                    <div class="bold" id="">
+                        <label for="postal">Code postal* :</label>
+                        <input type="number" placeholder="Code postal" id="user_postal" name="user_postal" required>
+                    </div><br>
+                    <div class="bold" id="">
+                        <label for="city">Ville* :</label>
+                        <input type="text" placeholder="Ville" id="user_city" name="user_city" pattern="[A-Za-z\s]{1,}">
+                    </div>
+                </div><br>
+                <div class="bold" id="">
+                    <label for="adress">Adresse* :</label>
+                    <input type="text" placeholder="adresse de livraison" id="user_adress" name="user_adress"required>
+                </div><br>
+                <div class="bold" id="">
+                    <label for="mail">Adresse mail* :</label>
+                    <input type="email" placeholder="adresse@mail.com" id="user_mail" name="user_mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" required>
+                </div><br>
+                <div class="bold" id="">
+                    <label for="phone" >N° de téléphone* :</label>
+                    <input type="tel" placeholder="Numéro de téléphone" id="phone" name="phone"  pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$
+                    " required>
+                </div><br>
+                <div class="containerRemplir">
+                <div class="remplir">*à remplir obligatoirement</div>
+                </div>
+                <br><div class="cgv">
+               <!-- <input type="checkbox" /> J'accepte les conditions générales de ventes. -->
+                </div>
+                <div class="containerCommander">
+                    <button  type="submit" class="btnEnvoieForm">Commander</button>                                                      
+                </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>                                
 
         `;
        
@@ -41,7 +95,8 @@ btnSupprimer.addEventListener("click", () => {
   location.reload();
 });
 
-    //définition d'une classe pour fabriquer l'objet dans lequel iront 
+
+     //définition d'une classe pour fabriquer l'objet dans lequel iront 
     //les values du form
 
     
@@ -67,7 +122,6 @@ console.log(formulaireValues);
 localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
 
 })
-
 function valideForm(){    
     var prenom = document.forms["form"]["user_name"];
     var nom = document.forms["form"]["user_lastname"];

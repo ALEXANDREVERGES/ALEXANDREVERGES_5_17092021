@@ -326,7 +326,7 @@ input{
     margin-top: 50px;
 }
 .form{
-    height: 500px;
+    height: 550px;
    width: 400px;
     display: flex;
    justify-content: center;
@@ -358,7 +358,12 @@ input{
     border-radius: 15px;
    
   }
-
+.cgv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
 
   
   
