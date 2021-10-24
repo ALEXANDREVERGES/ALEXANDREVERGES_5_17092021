@@ -1,16 +1,12 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
 
-let produitPanier = localStorage.getItem("peluche");
-let myObj = JSON.stringify(produitPanier);
-localStorage.setItem("produitPanier", myObj);
-let myObj_deserialized = JSON.parse(localStorage.getItem("produitPanier"));
 
 //console.log(myObj_deserialized);
 
 
 //annoncé si le panier est vide + photo
- if(myObj_deserialized === null){
+ if(basket === null){
      const panierVide = document.getElementById("panierVide");
       panierVide.innerHTML =`<div class="containerPanier">
       <img src="img/ourson.png">
@@ -20,15 +16,31 @@ let myObj_deserialized = JSON.parse(localStorage.getItem("produitPanier"));
  //afficher les produits du panier + formulaire
  else{
      let structurePanier = [];
-     for(k = 0; k < myObj_deserialized.length;k++){
+     for(k = 0; k < basket.length;k++){
         structurePanier = `
         <div class="container_panier">
-        <div class="produitPanier">${myObj_deserialized}<button class="btnSupprimer">Supprimer</button></div>
+            <table>
+                <tr>
+                    <td>Produit</td>
+                    <td>Nom</td>
+                    <td>Couleur</td>
+                    <td>Quantité</td>
+                    <td>Prix</>
+                </tr>
+                <tr>
+                    <td>${basket[k].idImage}</td>
+                    <td>${basket[k].idNom}</td>
+                    <td>${basket[k].idCouleur}</td>
+                    <td>${basket[k].idQuantity}</td>
+                    <td>${basket[k].idPrice}</td>
+            </table>        
+        
+        <button class="btnSupprimer">Supprimer</button>
         </div>
         <div class="container_form">
         <div class="eltForm">
         
-        <div >
+        <div>
         <!---------- formulaire ------->
         <form onsubmit="return valideForm()" action="order.html" name="form"  class="form">
             <h2>Votre adresse de livraison</h2>
@@ -75,16 +87,15 @@ let myObj_deserialized = JSON.parse(localStorage.getItem("produitPanier"));
                     <button  type="submit" class="btnEnvoieForm">Commander</button>                                                      
                 </div>
                 </div>
-            </form>
-        </div>
+     </form>
+     </div>  
     </div>
     </div>                                
-
         `;
        
            
      } 
-     if(k === myObj_deserialized.length){
+     if(k === basket.length){
          panierVide.innerHTML = structurePanier;
      }
  }

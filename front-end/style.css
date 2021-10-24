@@ -100,6 +100,7 @@ img{
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 .img1{
     width: 70%;
@@ -312,7 +313,7 @@ input{
     flex-direction: column;
 }
 .pagePanier{
-    height: 1100px;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -325,16 +326,17 @@ input{
     flex-direction: column;
     margin-top: 50px;
 }
-.form{
-    height: 550px;
+.eltForm{
+    height: auto;
    width: 400px;
     display: flex;
    justify-content: center;
-   background: rgb(155,155,235);
+   background: rgb(176, 155, 235);
    padding: 20px;
     flex-direction: column;
     border-radius: 10px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
+    margin-bottom: 50px;
     
 }
 .contenant{
@@ -364,7 +366,25 @@ input{
     align-items: center;
     margin-bottom: 20px;
 }
-
+.container_panier{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+tr{
+    font-weight: bold;
+    margin-bottom: 35%;
+}
+td{
+    width: 120px;
+    margin-bottom: 35%;
+}
+td .img1{
+    
+    margin-bottom: -35%;
+    width: 70%;
+}
   
   
 
@@ -681,4 +701,3 @@ input{
     align-items: center;
     justify-content: center;
 }
-  

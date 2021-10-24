@@ -22,7 +22,7 @@ fetch(newUrl)
             selectionProductName.innerHTML += `${product.name}`;
 
         const selectionProductImage = document.getElementById("productImage");
-            selectionProductImage.innerHTML += `<img  class="img1"  src="${product.imageUrl}">` 
+        selectionProductImage.innerHTML += `<img class="img1"   src="${product.imageUrl}">` 
          
             const selectionProductPrice = document.getElementById("productPrice");
             selectionProductPrice.innerHTML += `${product.price /100},00€`;
@@ -55,7 +55,7 @@ fetch(newUrl)
           if (bearNumber.value > 0 && bearNumber.value < 100) {
             // ------ Création du produit qui sera ajouté au panier
             let productAdded = {
-              //image: productCardImg.innerHTML,
+              idImage: productCardImg.innerHTML,
               idNom: productCardName.innerHTML,
               idPrice: productCardPrice.innerHTML,
               idQuantity: parseFloat(document.querySelector("#bearNum").value),
