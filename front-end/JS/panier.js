@@ -2,9 +2,6 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
 
 
-//console.log(myObj_deserialized);
-
-
 //annoncé si le panier est vide + photo
  if(basket === null){
      const panierVide = document.getElementById("panierVide");
@@ -25,18 +22,27 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
                     <td>Nom</td>
                     <td>Couleur</td>
                     <td>Quantité</td>
-                    <td>Prix</>
+                    <td>Prix</td>
                 </tr>
+            </table>
+            </div> 
+            <div>
+            <table class="container_panier1">
+           
                 <tr>
                     <td>${basket[k].idImage}</td>
                     <td>${basket[k].idNom}</td>
                     <td>${basket[k].idCouleur}</td>
                     <td>${basket[k].idQuantity}</td>
                     <td>${basket[k].idPrice}</td>
-            </table>        
+                </tr>    
+                
+            </table>
+            </div>
+             <br>      
+         <button class="btnSupprimer">Effacer votre panier</button>
         
-        <button class="btnSupprimer">Supprimer</button>
-        </div>
+        
         <div class="container_form">
         <div class="eltForm">
         

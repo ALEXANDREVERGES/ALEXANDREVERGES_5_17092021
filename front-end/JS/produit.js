@@ -25,7 +25,7 @@ fetch(newUrl)
         selectionProductImage.innerHTML += `<img class="img1"   src="${product.imageUrl}">` 
          
             const selectionProductPrice = document.getElementById("productPrice");
-            selectionProductPrice.innerHTML += `${product.price /100},00€`;
+            selectionProductPrice.innerHTML += `${product.price /100}€`;
 
             const selectionProductDescription = document.getElementById("productDescription");
             selectionProductDescription.innerHTML += `
