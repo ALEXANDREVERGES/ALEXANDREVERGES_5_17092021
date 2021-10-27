@@ -38,12 +38,12 @@
     <div class="home">
         <div class="acceuil">
             <a href="index.html"><div class="title">Orinoco</div></a>            
-            <div class="panier">
-                
+            <div class="panier">              
                 <a href="panier.html"  class="panier_text">PANIER</a>
-                <div id="basketPreview"></div>
-               
-            </div>
+                <div class="panierIcon">
+                    <div><i class="fas fa-shopping-cart"></i></div>
+                    <div id="basketPreview"></div>
+                </div>
         </div>
     </div>
     </header>
@@ -61,8 +61,7 @@
             <tr>
                 <td>Produit</td>
                 <td>Nom</td>
-                <td>Couleur</td>
-                <td>Prix</td>
+                <td>Couleur</td>                
                 <td>Quantité</td>             
                 <td >Total</td>
                 <td></td>
@@ -77,10 +76,13 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="index.html"><button>Retour boutique</button></a></td>
+            <td><a href="index.html"><button>Retour boutique</button></a></td>           
+            <td></td>
             <td >Total prix panier:</td>
-            <td id="totalPrice"></td>     
-            <td></td>        
+           <div class="totalPrice"> 
+               <td><div id="totalPrice"></div></td>
+             </div>    
+                    
            
             
         </tr>

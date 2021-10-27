@@ -1,8 +1,8 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
+
 for(var t=0; t < basket.length; t++){
   articlePanier = basket.length;
   let nbArticlePanier = document.getElementById("basketPreview").textContent = articlePanier;
-  
 }
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
@@ -63,13 +63,15 @@ fetch(newUrl)
         const textConfirmation = document.querySelector(".confirmation-text");
         
         addToCartBtn.addEventListener("click", () => {
+          const choixQt = bearNumber.value;
+         
           
           if (bearNumber.value > 0 && bearNumber.value < 100) {
             // ------ Création du produit qui sera ajouté au panier
             let productAdded = {
               idImage: productCardImg.innerHTML,
               idNom: productCardName.innerHTML,
-              idPrice: productCardPrice.innerHTML,
+              idPrice: parseFloat(productCardPrice.innerHTML) * parseFloat(document.querySelector("#bearNum").value),
               idQuantity: parseFloat(document.querySelector("#bearNum").value),
               idCouleur: document.querySelector("#option").value,
               id:newId,
@@ -86,6 +88,8 @@ fetch(newUrl)
         localStorage.setItem("peluche", JSON.stringify(arrayPeluche));   
       location.reload();
       alert('Votre article a été ajouté au panier ! Merci // Si vous voulez voir vos produits, cliquez sur "Voir Panier" ')
+
+      
     } 
     else {
       confirmation.style.visibility = "visible";

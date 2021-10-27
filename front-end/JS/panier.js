@@ -2,25 +2,27 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
 
 
-//FONCTION CALCUL PRIX TOTAL DU PANIER ET ENVOIE AU LOCAL STORAGE
 
+//CALCUL PRIX TOTAL DU PANIER 
+let prixTotalCalcul = [];
+for (let m = 0; m < basket.length; m++){
+    let prixProduitsDansLePanier = parseFloat(basket[m].idPrice) * basket[m].idQuantity;   
+    //mettre les prix du panier dans ma varible prixTotalCalcul
+    prixTotalCalcul.push(prixProduitsDansLePanier)   
+}
+//additionner les prix qu'il y a dans le tableau prixTotalCalcul avec la method reducer
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+const prixTotal = prixTotalCalcul.reduce(reducer);
+
+let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +"€";
+
+
+
+//affichage nb article dans panier sur page web
     for(var t=0; t < basket.length; t++){
-    prixPanier = basket[t].idQuantity * parseFloat(basket[t].idPrice);
-    console.log("prixPanier")
-    console.log(basket[t].idQuantity)
-    console.log( basket[t].idPrice);
-
     articlePanier = basket.length;
-    
-
-    
-
-    //AFFICHE PRIX TOTAL DU PANIER // ENVOIE AU LOCALSTORAGE
-    let totalPrice = document.getElementById("totalPrice").textContent = prixPanier +"€";
-    localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
     let nbArticlePanier = document.getElementById("basketPreview").textContent = articlePanier;
-
-    
+  
 }
 
 
@@ -45,10 +47,10 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
                         <td>${basket[k].idImage}</td>
                         <td>${basket[k].idNom}</td>
                         <td>${basket[k].idCouleur}</td>
-                        <td id="prix">${basket[k].idPrice}</td>
-                        <td id="qt">${basket[k].idQuantity}</td>                
-                        <td id="totalPrice"></td>                   
-                        <td> <button class="btnSupprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td>
+                        <td id="qt">${basket[k].idQuantity}</td> 
+                        <td id="prix">${basket[k].idPrice}€</td>                
+                        <td></td>             
+                      <!--  <td> <button class="btnSupprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td> -->
                     </tr>                  
                 </table>
             </div> 
@@ -62,29 +64,16 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
      } 
      
  }
+ //button pour supprimer tout le panier
+ const buttonToEmptyCart = document.querySelector(".btnSupprimerAll");
+ buttonToEmptyCart.addEventListener("click",() =>{
+    localStorage.clear();
+    location.reload();
+ })
  //bouton pour supprimer les articles du panier 
-let btnSupprimer = document.querySelectorAll(".btnSupprimer");
-for (let l = 0; l < btnSupprimer.length; l++){
-    btnSupprimer[l].addEventListener("click", (event)=>{
-        event.preventDefault();
-        //sélection de l'id du produit à supprimer en cliquant sur le bouton
-        let id_selectionner_suppression = basket[l].id;
-        console.log(id_selectionner_suppression);
-        //method filter, sélection des elements à garder et supprimer l'élément du bouton qui a été cliqué
-        basket = basket.filter(el => el.id !== id_selectionner_suppression);
-        localStorage.setItem("peluche", JSON.stringify(basket));
-        alert("Votre produit est bien supprimé")
-        window.location.href = "panier.html";
-
-    })
-}
+ 
 
 
-
-     //définition d'une classe pour fabriquer l'objet dans lequel iront 
-    //les values du form
-
-    
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm ");
 btnEnvoieForm .addEventListener("click",() =>{
     
@@ -105,12 +94,12 @@ class Formulaire {
 const formulaireValues = new Formulaire();
 localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
 const input = JSON.parse(localStorage.getItem("formulaire"));
-console.log(input.mail);
+
 
     
 let productsBought = [];
     productsBought.push(basket);
-console.log(productsBought)
+
 
 const order = {
   contact: {
@@ -122,7 +111,7 @@ const order = {
   },
   products:productsBought,
 };
-console.log(order);
+
  //-------  Envoi de la requête POST au back-end --------
       // Création de l'entête de la requête
         const options = {
