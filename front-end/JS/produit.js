@@ -1,4 +1,9 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
+for(var t=0; t < basket.length; t++){
+  articlePanier = basket.length;
+  let nbArticlePanier = document.getElementById("basketPreview").textContent = articlePanier;
+  
+}
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("_id");
@@ -58,6 +63,7 @@ fetch(newUrl)
         const textConfirmation = document.querySelector(".confirmation-text");
         
         addToCartBtn.addEventListener("click", () => {
+          
           if (bearNumber.value > 0 && bearNumber.value < 100) {
             // ------ Création du produit qui sera ajouté au panier
             let productAdded = {
@@ -77,15 +83,9 @@ fetch(newUrl)
         arrayPeluche = JSON.parse(localStorage.getItem("peluche")); }         
         // Si le Localstorage est vide, on le crée avec le produit ajouté    
         arrayPeluche.push(productAdded);
-        localStorage.setItem("peluche", JSON.stringify(arrayPeluche)); 
-        
-// Message lors d'un ajout au panier
-      confirmation.style.visibility = "visible";
-      textConfirmation.style.background = "green";
-      textConfirmation.style.border = "green";
-      textConfirmation.style.color = "white";
-      textConfirmation.style.textAlign = "center";
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNum.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;   
+        localStorage.setItem("peluche", JSON.stringify(arrayPeluche));   
+      location.reload();
+      alert('Votre article a été ajouté au panier ! Merci // Si vous voulez voir vos produits, cliquez sur "Voir Panier" ')
     } 
     else {
       confirmation.style.visibility = "visible";

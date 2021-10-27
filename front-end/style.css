@@ -34,7 +34,8 @@ body{
 .panier{
     display: flex;
     font-family: 'Monoton', cursive;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     font-size: 25px;
     margin-left: 15px;
 }
@@ -323,6 +324,11 @@ input{
 .fa-trash-alt{
     cursor: pointer;
 }
+.fa-trash-alt:hover{
+    cursor: pointer;
+    font-size: 20px;
+}
+
 .eltForm{
     display: flex;
     align-items: center;
@@ -401,6 +407,25 @@ input{
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
+.ctnBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#basketPreview{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    width: 30px;
+    font-family: 'Roboto', sans-serif;
+    border: 1px solid white;
+    border-radius: 25px 25px 25px 25px;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
 .panierPanier{
     
 }
@@ -437,6 +462,9 @@ td .img1{
     
     margin-bottom: -18%;
     width: 80px;
+}
+td .img1:hover{
+    width: 150px;
 }
 .td{
     display: flex;

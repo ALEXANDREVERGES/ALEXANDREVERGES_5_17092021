@@ -1,6 +1,29 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
 
+
+//FONCTION CALCUL PRIX TOTAL DU PANIER ET ENVOIE AU LOCAL STORAGE
+
+    for(var t=0; t < basket.length; t++){
+    prixPanier = basket[t].idQuantity * parseFloat(basket[t].idPrice);
+    console.log("prixPanier")
+    console.log(basket[t].idQuantity)
+    console.log( basket[t].idPrice);
+
+    articlePanier = basket.length;
+    
+
+    
+
+    //AFFICHE PRIX TOTAL DU PANIER // ENVOIE AU LOCALSTORAGE
+    let totalPrice = document.getElementById("totalPrice").textContent = prixPanier +"€";
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice))
+    let nbArticlePanier = document.getElementById("basketPreview").textContent = articlePanier;
+
+    
+}
+
+
 //annoncé si le panier est vide + photo
  if(basket === null){
      const panierVide = document.getElementById("rien");
@@ -24,8 +47,8 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
                         <td>${basket[k].idCouleur}</td>
                         <td id="prix">${basket[k].idPrice}</td>
                         <td id="qt">${basket[k].idQuantity}</td>                
-                        <td id="totalPrice"> </td>                  
-                        <td>  <i class="fas fa-trash-alt btnSupprimer">Effacer</i></td>
+                        <td id="totalPrice"></td>                   
+                        <td> <button class="btnSupprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td>
                     </tr>                  
                 </table>
             </div> 
@@ -40,11 +63,21 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
      
  }
  //bouton pour supprimer les articles du panier 
-const btnSupprimer = document.querySelector(".btnSupprimer");
-btnSupprimer.addEventListener("click", () => {
-  localStorage.clear();
-  location.reload();
-})
+let btnSupprimer = document.querySelectorAll(".btnSupprimer");
+for (let l = 0; l < btnSupprimer.length; l++){
+    btnSupprimer[l].addEventListener("click", (event)=>{
+        event.preventDefault();
+        //sélection de l'id du produit à supprimer en cliquant sur le bouton
+        let id_selectionner_suppression = basket[l].id;
+        console.log(id_selectionner_suppression);
+        //method filter, sélection des elements à garder et supprimer l'élément du bouton qui a été cliqué
+        basket = basket.filter(el => el.id !== id_selectionner_suppression);
+        localStorage.setItem("peluche", JSON.stringify(basket));
+        alert("Votre produit est bien supprimé")
+        window.location.href = "panier.html";
+
+    })
+}
 
 
 
