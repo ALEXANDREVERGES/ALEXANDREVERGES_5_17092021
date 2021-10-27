@@ -2,6 +2,8 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("_id");
+//let params = new URL(document.location).searchParams;
+//let id = params.get("id");
 
 //modification de l'adresse d'appel à l'API
 const newUrl = `http://localhost:3000/api/teddies/${newId}`;
@@ -14,6 +16,7 @@ fetch(newUrl)
     addCard(data);
     addColors(data);
     addToCart();
+    
     // fonction pour la création de la card de la page produit
     function addCard(product) {
 
@@ -25,13 +28,14 @@ fetch(newUrl)
         selectionProductImage.innerHTML += `<img class="img1"   src="${product.imageUrl}">` 
          
             const selectionProductPrice = document.getElementById("productPrice");
-            selectionProductPrice.innerHTML += `${product.price /100}€`;
+            selectionProductPrice.innerHTML += `${product.price/100}€`;
 
             const selectionProductDescription = document.getElementById("productDescription");
             selectionProductDescription.innerHTML += `
         <p class="text_info1">${product.description}</p>
         `;   
     }
+   
 
     // fonction pour l'ajout de la couleur du produit
     function addColors(product) {
@@ -45,6 +49,8 @@ fetch(newUrl)
     const productCardPrice = document.querySelector("#productPrice");
     const bearNumber = document.querySelector("#bearNum");
     const colorSelect = document.querySelector("#color-select");
+
+ 
 
     function addToCart() {
         const addToCartBtn = document.querySelector(".add-to-cart");
@@ -60,6 +66,7 @@ fetch(newUrl)
               idPrice: productCardPrice.innerHTML,
               idQuantity: parseFloat(document.querySelector("#bearNum").value),
               idCouleur: document.querySelector("#option").value,
+              id:newId,
             };
             
 
@@ -71,14 +78,14 @@ fetch(newUrl)
         // Si le Localstorage est vide, on le crée avec le produit ajouté    
         arrayPeluche.push(productAdded);
         localStorage.setItem("peluche", JSON.stringify(arrayPeluche)); 
-        console.log(arrayPeluche); 
+        
 // Message lors d'un ajout au panier
       confirmation.style.visibility = "visible";
       textConfirmation.style.background = "green";
       textConfirmation.style.border = "green";
       textConfirmation.style.color = "white";
       textConfirmation.style.textAlign = "center";
-      textConfirmation.innerHTML = `Vous avez ajouté ${bearNumber.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;   
+      textConfirmation.innerHTML = `Vous avez ajouté ${bearNum.value} ${product.name} ${option.value} à votre panier !<br> Merci !!`;   
     } 
     else {
       confirmation.style.visibility = "visible";
@@ -96,6 +103,8 @@ fetch(newUrl)
 
 
 });
+
+
 //---------------ANIMATION TITRES---------------------------------------//
 // Wrap every letter in a span
 var textWrapper = document.querySelector('.ml7 .letters');

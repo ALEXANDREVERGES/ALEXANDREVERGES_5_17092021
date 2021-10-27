@@ -63,7 +63,7 @@
                     <div class="name" id="productName"></div>
                     <div class="prix text_info1">
                         <div class="prix">Prix:</div>
-                                <div class="text_info1" id="productPrice"></div>
+                                <div id="productPrice"></div>
                             </div>  
                             </div> 
                         </div>                                                         
@@ -72,22 +72,26 @@
                                 <div class="text_info2">Choisir la couleur :</div>
                             <select class=" btn_ajout" id="option" aria-label="choisir la couleur"></select> </div>
                             <div class="btn">
-                                <label for="bearNum" class="text_info2"><p>Quantité</p></label>
-                                <div class=" ">
-                                    <select id="bearNum"  name="bearNum" class="quantity btn_ajout" aria-label="Quantité">
-                                        <option value=""></option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
+                               <label for="bearNum" id="bearNumber"   class="text_info2"><p>Quantité</p></label>
+                               <div class=" ">
+                                <select id="bearNum"  name="bearNum" class="quantity btn_ajout" aria-label="Quantité">
+                                    <option value=""></option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                             </div>
+                            <div id="prix"></div>
+                           
+                        </div>
+                        <div class="added-to-cart-confirmation">
                             <div class="added-to-cart-confirmation">
                                 <p class="confirmation-text"></p>
                             </div>
                         <div class="center">
+                            
                             <a href="index.html"><button class="btn_ajout margin" type="button" >Retour boutique</button></a>                        
                             <button class="add-to-cart btn_ajout margin" >Ajouter au panier</button>
                             <a href="panier.html"><button class="btn_ajout">Voir Panier</button></a>
