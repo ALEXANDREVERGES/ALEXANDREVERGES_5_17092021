@@ -15,7 +15,7 @@ let qtTotalCalcul = [];
 //CALCUL PRIX TOTAL DU PANIER 
 let prixTotalCalcul = [];
 for (let m = 0; m < basket.length; m++){
-    let prixProduitsDansLePanier = parseFloat(basket[m].idPrice) * basket[m].idQuantity;   
+    let prixProduitsDansLePanier = parseFloat(basket[m].idPrice);   
     
     //mettre les prix du panier dans ma varible prixTotalCalcul
     prixTotalCalcul.push(prixProduitsDansLePanier)   

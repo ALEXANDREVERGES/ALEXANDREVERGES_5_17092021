@@ -73,13 +73,12 @@ fetch(newUrl)
               idQuantity: parseFloat(document.querySelector("#bearNum").value),
               idCouleur: document.querySelector("#option").value,
               id:newId,
-            };
-            
-
+            };           
             // ----------------- Gestion du localStorage
-      let arrayPeluche = [];     
+          let arrayPeluche = []; 
 // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayPeluche, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
-      if (localStorage.getItem("peluche") !== null) {
+      if (localStorage.getItem("peluche") !== null) {   
+
         arrayPeluche = JSON.parse(localStorage.getItem("peluche")); }         
         // Si le Localstorage est vide, on le crée avec le produit ajouté    
         arrayPeluche.push(productAdded);
