@@ -1,9 +1,15 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
-for(var t=0; t < basket.length; t++){
-  articlePanier = basket.length;
-  let nbArticlePanier = document.getElementById("basketPreview").textContent = articlePanier;
-}
-
+//affichage nb article dans panier sur page web
+let qtTotalCalcul = [];
+    for(var t=0; t < basket.length; t++){
+    articlePanier = basket[t].idQuantity;
+    qtTotalCalcul.push(articlePanier)
+    console.log(qtTotalCalcul)
+  }
+  const rdu = (accumulator, currentValue) => accumulator + currentValue;
+  const qtTotal = qtTotalCalcul.reduce(rdu);
+    let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
+    
 fetch('http://localhost:3000/api/teddies')
 .then((res) => res.json())
 .then ((data) => { 

@@ -7,6 +7,7 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 let prixTotalCalcul = [];
 for (let m = 0; m < basket.length; m++){
     let prixProduitsDansLePanier = parseFloat(basket[m].idPrice) * basket[m].idQuantity;   
+    
     //mettre les prix du panier dans ma varible prixTotalCalcul
     prixTotalCalcul.push(prixProduitsDansLePanier)   
 }
@@ -19,11 +20,17 @@ let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +
 
 
 //affichage nb article dans panier sur page web
+let qtTotalCalcul = [];
     for(var t=0; t < basket.length; t++){
-    articlePanier = basket.length;
-    let nbArticlePanier = document.getElementById("basketPreview").textContent = articlePanier;
+    articlePanier = basket[t].idQuantity;
+    qtTotalCalcul.push(articlePanier)
+    console.log(qtTotalCalcul)
+  }
+  const rdu = (accumulator, currentValue) => accumulator + currentValue;
+  const qtTotal = qtTotalCalcul.reduce(rdu);
+    let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
   
-}
+
 
 
 //annoncé si le panier est vide + photo
