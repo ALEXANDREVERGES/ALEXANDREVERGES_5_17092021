@@ -1,5 +1,4 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
-//affichage nb article dans panier sur page web
 
 
 fetch('http://localhost:3000/api/teddies')

@@ -1,6 +1,15 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
-
+//affichage nb article dans panier sur page web
+let qtTotalCalcul = [];
+    for(var t=0; t < basket.length; t++){
+    articlePanier = basket[t].idQuantity;
+    qtTotalCalcul.push(articlePanier)
+    
+  }
+  let redu = (accumulator, currentValue) => accumulator + currentValue;
+  const qtTotal = qtTotalCalcul.reduce(redu);
+    let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
 
 
 //CALCUL PRIX TOTAL DU PANIER 
@@ -12,22 +21,13 @@ for (let m = 0; m < basket.length; m++){
     prixTotalCalcul.push(prixProduitsDansLePanier)   
 }
 //additionner les prix qu'il y a dans le tableau prixTotalCalcul avec la method reducer
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
+let reducer = (accumulator, currentValue) => accumulator + currentValue;
 const prixTotal = prixTotalCalcul.reduce(reducer);
 
 let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +"€";
 
 
-//affichage nb article dans panier sur page web
-let qtTotalCalcul = [];
-    for(var t=0; t < basket.length; t++){
-    articlePanier = basket[t].idQuantity;
-    qtTotalCalcul.push(articlePanier)
-    console.log(qtTotalCalcul)
-  }
-  const rdu = (accumulator, currentValue) => accumulator + currentValue;
-  const qtTotal = qtTotalCalcul.reduce(rdu);
-    let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
+
 
   
 
@@ -55,9 +55,8 @@ let qtTotalCalcul = [];
                         <td>${basket[k].idNom}</td>
                         <td>${basket[k].idCouleur}</td>
                         <td id="qt">${basket[k].idQuantity}</td> 
-                        <td id="prix">${basket[k].idPrice}€</td>                
-                        <td></td>             
-                      <!--  <td> <button class="btnSupprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td> -->
+                        <td id="prix">${basket[k].idPrice}€</td>                                              
+                        <td> <button class="btn-supprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td> 
                     </tr>                  
                 </table>
             </div> 
@@ -71,14 +70,47 @@ let qtTotalCalcul = [];
      } 
      
  }
- //button pour supprimer tout le panier
- const buttonToEmptyCart = document.querySelector(".btnSupprimerAll");
- buttonToEmptyCart.addEventListener("click",() =>{
-    localStorage.clear();
-    location.reload();
- })
- //bouton pour supprimer les articles du panier 
+//button pour supprimer tout le panier
+const buttonToEmptyCart = document.querySelector(".btnSupprimerAll");
+buttonToEmptyCart.addEventListener("click",() =>{
+   localStorage.clear();
+   location.reload();
+})
  
+ //bouton pour supprimer les articles du panier 
+ //sélectionner les référence de tous les bouton supprimer article
+let btn_supprimer = document.querySelectorAll(".btn-supprimer");
+console.log("btn_supprimer")
+console.log(btn_supprimer);
+
+for(let l = 0; l < btn_supprimer.length; l++){
+  btn_supprimer[l].addEventListener("click",(event) =>{
+    event.preventDefault();
+
+    //sélectionner ID qui va être supprimé après le click
+    let id_selectionner_suppression = basket[l].id;
+    console.log("id_selectionner_suppression");
+    console.log(id_selectionner_suppression);
+
+    //utilisation méthod filter, je sélectionne les éléments à garder et je supprime l'élément ou le btn supprimer a été click
+   const result = basket.filter(el => el.id !== id_selectionner_suppression);
+    console.log(result)
+
+   localStorage.removeItem(id_selectionner_suppression)
+    
+
+
+  })
+}
+
+
+
+
+
+
+
+
+
 
 
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm ");
