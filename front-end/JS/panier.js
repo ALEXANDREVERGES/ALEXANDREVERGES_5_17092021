@@ -96,7 +96,12 @@ for(let l = 0; l < btn_supprimer.length; l++){
    const result = basket.filter(el => el.id !== id_selectionner_suppression);
     console.log(result)
 
-   localStorage.removeItem(id_selectionner_suppression)
+
+    localStorage.setItem("peluche", JSON.stringify(result)); 
+    location.reload();  
+    
+    
+   
     
 
 
