@@ -88,12 +88,12 @@ for(let l = 0; l < btn_supprimer.length; l++){
     event.preventDefault();
 
     //sélectionner ID qui va être supprimé après le click
-    let id_selectionner_suppression = basket[l].id;
+    let id_selectionner_suppression = basket[l].id + basket[l].idCouleur;
     console.log("id_selectionner_suppression");
     console.log(id_selectionner_suppression);
 
     //utilisation méthod filter, je sélectionne les éléments à garder et je supprime l'élément ou le btn supprimer a été click
-   const result = basket.filter(el => el.id !== id_selectionner_suppression);
+   const result = basket.filter(el => el.id + el.idCouleur !== id_selectionner_suppression);
     console.log(result)
 
 
