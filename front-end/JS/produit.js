@@ -1,16 +1,7 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
-//affichage nb article dans panier sur page web
-let qtTotalCalcul = [];
-    for(var t=0; t < basket.length; t++){
-    articlePanier = basket[t].idQuantity;
-    qtTotalCalcul.push(articlePanier)
-    console.log(qtTotalCalcul)
-  }
-  const rdu = (accumulator, currentValue) => accumulator + currentValue;
-  const qtTotal = qtTotalCalcul.reduce(rdu);
-    let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
-    
+
+
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("_id");

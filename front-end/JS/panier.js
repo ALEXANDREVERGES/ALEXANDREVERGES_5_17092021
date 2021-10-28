@@ -18,7 +18,6 @@ const prixTotal = prixTotalCalcul.reduce(reducer);
 let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +"€";
 
 
-
 //affichage nb article dans panier sur page web
 let qtTotalCalcul = [];
     for(var t=0; t < basket.length; t++){
@@ -29,6 +28,7 @@ let qtTotalCalcul = [];
   const rdu = (accumulator, currentValue) => accumulator + currentValue;
   const qtTotal = qtTotalCalcul.reduce(rdu);
     let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
+
   
 
 
