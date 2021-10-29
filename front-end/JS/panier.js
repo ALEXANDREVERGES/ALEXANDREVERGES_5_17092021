@@ -80,8 +80,7 @@ buttonToEmptyCart.addEventListener("click",() =>{
  //bouton pour supprimer les articles du panier 
  //sélectionner les référence de tous les bouton supprimer article
 let btn_supprimer = document.querySelectorAll(".btn-supprimer");
-console.log("btn_supprimer")
-console.log(btn_supprimer);
+
 
 for(let l = 0; l < btn_supprimer.length; l++){
   btn_supprimer[l].addEventListener("click",(event) =>{
@@ -99,10 +98,7 @@ for(let l = 0; l < btn_supprimer.length; l++){
 
     localStorage.setItem("peluche", JSON.stringify(result)); 
     location.reload();  
-    
-    
-   
-    
+    alert("Votre suppression d'article a été pris en compte !") 
 
 
   })
