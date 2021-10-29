@@ -304,11 +304,17 @@ h2{
     display: flex;
     justify-content: space-between;
     font-weight: bold;
-    
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    width: 100%
 }
 input{
     border-radius: 10px;
-    height: 25px;
+    height: 30px;
+}
+
+.width{
+    width: 100%;
 }
 #panierVide{
     height: auto;
@@ -430,12 +436,17 @@ input{
     padding: 10px;
     border: 2px solid white;
     border-radius: 25px;
+   margin-left: -20px;
+
+
 }
 .totalPrice{
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
 #basketPreview{
     position: absolute;
     top: 5%;
@@ -477,10 +488,11 @@ input{
     font-size: 25px;
 }
 tr{
+   margin-bottom: 35%;
     font-weight: bold;
-    margin-bottom: 35%;
 }
 td{
+   
     width: 150px;
     height: 50px;
     margin-bottom: 35%;

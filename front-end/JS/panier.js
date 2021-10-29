@@ -105,79 +105,132 @@ for(let l = 0; l < btn_supprimer.length; l++){
 }
 
 
-
-
-
-
-
+ 
 
 
 
 
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm ");
+function envoieForm(){
 btnEnvoieForm .addEventListener("click",() =>{
-    
-    
-    //définition d'une classe pour fabriquer l'objet dans lequel iront 
+       //définition d'une classe pour fabriquer l'objet dans lequel iront 
     //les values du formulaire
-class Formulaire {
-    constructor(prenom,nom,postal,ville,adresse,mail,telephone){
-        this.prenom = document.querySelector("#user_name").value;
-        this.nom = document.querySelector("#user_lastname").value;
-        this.postal = document.querySelector("#user_postal").value;
-        this.ville = document.querySelector("#user_city").value;
-        this.adresse = document.querySelector("#user_adress").value;
-        this.mail= document.querySelector("#user_mail").value;
-        this.telephone= document.querySelector("#phone").value;
-    }
-}
-const formulaireValues = new Formulaire();
-localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
-const input = JSON.parse(localStorage.getItem("formulaire"));
-
-
+    class Formulaire {
+      constructor(prenom,nom,postal,ville,adresse,mail,telephone){
+          this.prenom = document.querySelector("#user_name").value;
+          this.nom = document.querySelector("#user_lastname").value;
+          this.postal = document.querySelector("#user_postal").value;
+          this.ville = document.querySelector("#user_city").value;
+          this.adresse = document.querySelector("#user_adress").value;
+          this.mail= document.querySelector("#user_mail").value;
+          
+      }
+  }
+  const formulaireValues = new Formulaire();
+  localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
+  const input = JSON.parse(localStorage.getItem("formulaire"));
+  
+  
     
-let productsBought = [];
-    productsBought.push(basket);
+const aEnvoyer={
+    basket,
+    formulaireValues
+  }
+  
+  console.log(aEnvoyer)
+
+const promise1 = fetch("http://localhost:3000/api/teddies/order",{
+  method: "POST",
+  body: JSON.stringify(aEnvoyer),
+  headers:{  
+    "Content-Type" : "application/json",
+  },
+});
+console.log("promise1")
+console.log(promise1)
 
 
-const order = {
-  contact: {
+//pour voir le résultat du serveur dans la console
+promise1.then(async(response) =>{
+  try{
+   
+    const contenu = await response.json();
+  
+  }catch(e){
+  
+  }
+})
+
+const promise2 = fetch("http://localhost:3000/api/teddies/order")
+promise2.then(async(response)=>{
+  try{
+    console.log("promise2");
+    console.log(promise2);
+    const donneesServeur = await response.json();
+    console.log("donneesServeur");
+    console.log(donneesServeur);
+
+  }catch(e){
+    console.log(e);
+  }
+})
+  
+
+
+/*let productsBought = [];
+    productsBought.push(bEsket);*/
+    
+
+
+ /*const contact =  {
     firstName: input.prenom,
     lastName: input.nom,
     city: input.city,
     address: input.adresse,
     email: input.mail,
-  },
-  products:productsBought,
-};
+  };*/
 
+/*console.log(order);
  //-------  Envoi de la requête POST au back-end --------
       // Création de l'entête de la requête
-        const options = {
+        fetch("http://localhost:3000/api/teddies/order",{
         method: "POST",
-        body: JSON.stringify(order),
+        body: JSON.stringify(contact, productsBought),
         headers: { 
+          "Accept": "application/json",
             "Content-Type": "application/json"
          },
-      };
+      })
+      .then(response => response.json())
+      .then(function(response){
+        var objRetour = response;
+        console.log(objetRetour["orderId"]);
+        localStorage.setItem("orderKey", objRetour["orderId"]);
+        document.location.href = "order.html";
+      })
+      .catch(function(error){
+
+        console.log(error)
+
+    })
+     
         
-         fetch("http://localhost:3000/api/teddies/order", options)
+       /*  fetch("http://localhost:3000/api/teddies/order", options)
          .then((response) => response.json())
          .then((data) => {
           // localStorage.clear();
            console.log(data)
            localStorage.setItem("orderId", data.orderId);
-           document.location.href = "order.html";
+           document.location.href = "";
 
 }) .catch((err) => {
     alert("Il y a eu une erreur : " + err);
-  });
+  });*/
 });
 
-
-
-function valideForm(){    
+}
+envoieForm();
+/* function valideForm(){    
     var prenom = document.forms["form"]["user_name"];
     var nom = document.forms["form"]["user_lastname"];
     var postal = document.forms["form"]["user_postal"];
@@ -192,14 +245,15 @@ if (prenom.value == "")
 alert("Mettez votre prénom"); 
 prenom.focus(); 
 return false; 
+} 
 
-}    
+   
 if (nom.value == "")                                  
 { 
 alert("Mettez votre nom"); 
 nom.focus(); 
 return false; 
-}    
+}
 if (postal.value == "")                               
 { 
 alert("Mettez votre code postal"); 
@@ -243,29 +297,15 @@ phone.focus();
 return false; 
 }    
 
-return true; 
+ 
+else{
 
+return true;
 }
-//---------------ANIMATION TITRES---------------------------------------//
-// Wrap every letter in a span
-var textWrapper = document.querySelector('.ml7 .letters');
-textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+}
+*/
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml7 .letter',
-    translateY: ["1.1em", 0],
-    translateX: ["0.55em", 0],
-    translateZ: 0,
-    rotateZ: [180, 0],
-    duration: 1500,
-    easing: "easeOutExpo",
-    delay: (el, i) => 50 * i
-  }).add({
-    targets: '.ml7',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
-  var timeout;
+ 
+
+
+
