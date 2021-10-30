@@ -130,42 +130,29 @@ btnEnvoieForm .addEventListener("click",() =>{
   localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
   const input = JSON.parse(localStorage.getItem("formulaire"));
   
-  
-    
+ 
+ 
 const aEnvoyer={
     basket,
     formulaireValues
   }
-  
-  console.log(aEnvoyer)
+ 
+ 
 
-const promise1 = fetch("http://localhost:3000/api/teddies/order",{
+fetch("http://localhost:3000/api/teddies/order",{
   method: "POST",
   body: JSON.stringify(aEnvoyer),
   headers:{  
     "Content-Type" : "application/json",
   },
 });
-console.log("promise1")
-console.log(promise1)
+console.log("aEnvoyer");
+console.log(aEnvoyer);
 
-
-//pour voir le résultat du serveur dans la console
-promise1.then(async(response) =>{
+fetch("http://localhost:3000/api/teddies/order")
+.then(async(response)=>{
   try{
-   
-    const contenu = await response.json();
-  
-  }catch(e){
-  
-  }
-})
-
-const promise2 = fetch("http://localhost:3000/api/teddies/order")
-promise2.then(async(response)=>{
-  try{
-    console.log("promise2");
-    console.log(promise2);
+    
     const donneesServeur = await response.json();
     console.log("donneesServeur");
     console.log(donneesServeur);
@@ -174,60 +161,7 @@ promise2.then(async(response)=>{
     console.log(e);
   }
 })
-  
-
-
-/*let productsBought = [];
-    productsBought.push(bEsket);*/
-    
-
-
- /*const contact =  {
-    firstName: input.prenom,
-    lastName: input.nom,
-    city: input.city,
-    address: input.adresse,
-    email: input.mail,
-  };*/
-
-/*console.log(order);
- //-------  Envoi de la requête POST au back-end --------
-      // Création de l'entête de la requête
-        fetch("http://localhost:3000/api/teddies/order",{
-        method: "POST",
-        body: JSON.stringify(contact, productsBought),
-        headers: { 
-          "Accept": "application/json",
-            "Content-Type": "application/json"
-         },
-      })
-      .then(response => response.json())
-      .then(function(response){
-        var objRetour = response;
-        console.log(objetRetour["orderId"]);
-        localStorage.setItem("orderKey", objRetour["orderId"]);
-        document.location.href = "order.html";
-      })
-      .catch(function(error){
-
-        console.log(error)
-
-    })
-     
-        
-       /*  fetch("http://localhost:3000/api/teddies/order", options)
-         .then((response) => response.json())
-         .then((data) => {
-          // localStorage.clear();
-           console.log(data)
-           localStorage.setItem("orderId", data.orderId);
-           document.location.href = "";
-
-}) .catch((err) => {
-    alert("Il y a eu une erreur : " + err);
-  });*/
 });
-
 }
 envoieForm();
 /* function valideForm(){    

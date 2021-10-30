@@ -227,9 +227,7 @@ section{
     color: white;
     box-shadow: -3px 1px 13px 0px rgba(white);
 }
-h2{
-    margin-bottom: 50px;
-}
+
 .containerCommander{
     display: flex;
     align-items: center;
@@ -360,10 +358,12 @@ input{
    width: 400px;
     display: flex;
    justify-content: center;
-   background: rgb(176, 155, 235);
+   background: rgb(155,155,235);
+   background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
    padding: 20px;
+   color: white;
     flex-direction: column;
-    border-radius: 10px;
+    border-radius: 10px 10px 10px 10px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
     margin-bottom: 50px;
     
