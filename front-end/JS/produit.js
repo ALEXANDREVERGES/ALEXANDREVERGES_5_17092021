@@ -2,6 +2,7 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
 
 
+
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("_id");
@@ -104,5 +105,4 @@ fetch(newUrl)
 
 
 });
-
 

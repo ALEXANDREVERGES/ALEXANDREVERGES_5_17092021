@@ -92,7 +92,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 80%;
     
     object-fit: cover;
     margin-top: -25px;
@@ -115,12 +115,30 @@ img{
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
     
 }
+.btnInputQt{
+    display: flex;
+    align-items: center;
+
+}
+.btnInputQt input{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0;
+    box-shadow: none;
+}
+.btnInputP,.btnInputM{
+    height: 36px;
+    width: 30px;
+}
 .carte{
     display: flex;
-    width: 100%;
+    width: auto;
     flex-direction: column;
     align-items: center;
-    height: 380px;
+    height: 400px;
     background: rgb(155,155,235);
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
     margin-bottom: 20px;
@@ -143,6 +161,8 @@ img{
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
 .text_info{
+    width: 90%;
+    font-size: 16px;
     text-align: center;
     font-weight: bold;
     display: flex;

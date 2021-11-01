@@ -34,9 +34,10 @@ let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +
 
 
 //annoncé si le panier est vide + photo
- if(basket === null){
+ if(basket.length === null){
      const panierVide = document.getElementById("rien");
-      rien.innerHTML =`<div class="containerPanier">
+     panierVide.innerHTML =`
+     <div class="containerPanier">
       <img src="img/ourson.png">
       <div class="text_info3">Votre Panier est vide !</div>
       </div>`;
@@ -54,7 +55,12 @@ let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +
                         <td>${basket[k].idImage}</td>
                         <td>${basket[k].idNom}</td>
                         <td>${basket[k].idCouleur}</td>
-                        <td id="qt">${basket[k].idQuantity}</td> 
+                       
+                       <!--   <div class="btnInputQt">-->
+                        <!-- <button class="btnInputM" type="button">-</button> -->
+                         <td id="qt">${basket[k].idQuantity}</td> 
+                         <!-- <button class="btnInputP" type="button">+</button>-->
+                         </div>
                         <td id="prix">${basket[k].idPrice}€</td>                                              
                         <td> <button class="btn-supprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td> 
                     </tr>                  
@@ -76,7 +82,52 @@ buttonToEmptyCart.addEventListener("click",() =>{
    localStorage.clear();
    location.reload();
 })
- 
+/*
+ //bouton - et +
+
+document.querySelectorAll(".btnInputM").setAttribute("disabled", "disabled");
+
+//prendre la valeur pour incrémenter décrémenter
+var valueCount
+
+//button +
+document.querySelectorAll(".btnInputP").addEventListener("click", function(){
+
+  //je récupère la value de l'input quantité
+  valueCount = document.getElementById("qt").value;
+
+  //input value  +1
+  valueCount++;
+
+  document.getElementById("qt").value = valueCount
+
+  if(valueCount > 1){
+    document.querySelectorAll(".btnInputM").removeAttribute("disabled")
+    document.querySelectorAll(".btnInputM").classList.remove("disabled")
+  }
+})
+
+//button +
+document.querySelectorAll(".btnInputM").addEventListener("click", function(){
+
+  //je récupère la value de l'input quantité
+  valueCount = document.getElementById("qt").value;
+
+  //input value  +1
+  valueCount--;
+
+  document.getElementById("qt").value = valueCount
+
+  if(valueCount == 1){
+    document.querySelectorAll(".btnInputM").setAttribute("disabled", "disabled")
+  }
+})
+*/
+
+
+
+
+
  //bouton pour supprimer les articles du panier 
  //sélectionner les référence de tous les bouton supprimer article
 let btn_supprimer = document.querySelectorAll(".btn-supprimer");
@@ -130,25 +181,44 @@ btnEnvoieForm .addEventListener("click",() =>{
   localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
   const input = JSON.parse(localStorage.getItem("formulaire"));
   
- 
- 
-const aEnvoyer={
-    basket,
-    formulaireValues
+  const order = {
+    contact: {
+      firstName: input.prenom,
+      lastName: input.nom,
+      address: input.postal,
+      city: input.ville,
+      email: input.mail,
+    },
+    products: basket,
   }
- 
- 
+     // on envoie en POST
+     fetch("http://localhost:3000/api/teddies/order", {
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({order}),
+  })
+      .then((response) => response.json())
+      .then((json) => {
+          localStorage.setItem("order", JSON.stringify(json));
+          document.location.href = "#";
+      })
+      .catch((erreur) => console.log("erreur : " + erreur));
 
-fetch("http://localhost:3000/api/teddies/order",{
+/*fetch("http://localhost:3000/api/teddies/order",{
   method: "POST",
-  body: JSON.stringify(aEnvoyer),
+  body: JSON.stringify(order),
   headers:{  
     "Content-Type" : "application/json",
   },
 });
-console.log("aEnvoyer");
-console.log(aEnvoyer);
+console.log("order");
+console.log( order);
+*/
 
+
+/*
 fetch("http://localhost:3000/api/teddies/order")
 .then(async(response)=>{
   try{
@@ -160,11 +230,11 @@ fetch("http://localhost:3000/api/teddies/order")
   }catch(e){
     console.log(e);
   }
-})
+})*/
 });
 }
 envoieForm();
-/* function valideForm(){    
+ function valideForm(){    
     var prenom = document.forms["form"]["user_name"];
     var nom = document.forms["form"]["user_lastname"];
     var postal = document.forms["form"]["user_postal"];
@@ -224,12 +294,6 @@ alert("Mettez une adresse email valide");
 mail.focus(); 
 return false; 
 }    
-if (telephone.value == "")                           
-{ 
-alert("Mettez votre numéro de téléphone"); 
-phone.focus(); 
-return false; 
-}    
 
  
 else{
@@ -237,7 +301,7 @@ else{
 return true;
 }
 }
-*/
+
 
  
 
