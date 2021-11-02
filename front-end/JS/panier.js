@@ -157,12 +157,11 @@ for(let l = 0; l < btn_supprimer.length; l++){
 
 
 
-
-
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm ");
 function envoieForm(){
-btnEnvoieForm .addEventListener("click",() =>{
-       //définition d'une classe pour fabriquer l'objet dans lequel iront 
+btnEnvoieForm .addEventListener("click",(event) =>{
+  event.preventDefault();
+ /*      //définition d'une classe pour fabriquer l'objet dans lequel iront 
     //les values du formulaire
     class Formulaire {
       constructor(prenom,nom,postal,ville,adresse,mail,telephone){
@@ -180,39 +179,39 @@ btnEnvoieForm .addEventListener("click",() =>{
     const input = JSON.parse(localStorage.getItem("formulaire"));
     console.log("input")
     console.log(input)
-    
+ */
+    let form = document.querySelector("#contact")   
     const order = {
       contact: {
-        firstName: input.prenom,
-        lastName: input.nom,
-        address: input.postal,
-        city: input.ville,
-        email: input.mail,
+        firstName: form.user_name.value,
+        lastName: form.user_lastname.value,
+        address: form.user_adress.value + form.user_postal.value8,
+        city: form.user_city.value,
+        email: form.user_mail.value,
       },
       products: basket,
     }
     console.log("order");
     console.log(order); 
     
-   // Création de l'entête de la requête
-   const options = {
-    method: "POST",
+  fetch("http://localhost:3000/api/teddies/order",{
+    method:"POST",
     body: JSON.stringify(order),
-    headers: { "Content-Type": "application/json" },
-  };
-  fetch("http://localhost:3000/api/teddies/order", options)
-  .then((response) => response.json())
-  .then((data) => {
-    localStorage.clear();
-    console.log(data)
-    localStorage.setItem("orderId", data.orderId);
-    document.location.href = "order.html";
-}) .catch((err) => {
-  alert("Il y a eu une erreur : " + err);
-});
+    headers:{
+      "Content-Type" : "application/json",
+    }
+  })
+  fetch("http://localhost:3000/api/teddies/order")
+  .then(async(res)=>{
+    let resObj = response;
+     console.log(resObj["orderId"]);
+     localStorage.setItem("orderKey", resObj["orderId"]);      
+     alert("Veuillez cliquer sur OK pour comfirmer votre commande.");
+     location.replace("order.html");
+  })
+    
 })
 }
-
  /*function valideForm(){    
     var prenom = document.forms["form"]["user_name"];
     var nom = document.forms["form"]["user_lastname"];
