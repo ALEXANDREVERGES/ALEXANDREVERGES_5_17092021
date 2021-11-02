@@ -156,8 +156,6 @@ for(let l = 0; l < btn_supprimer.length; l++){
 }
 
 
- 
-
 
 
 
@@ -176,65 +174,46 @@ btnEnvoieForm .addEventListener("click",() =>{
           this.mail= document.querySelector("#user_mail").value;
           
       }
-  }
-  const formulaireValues = new Formulaire();
-  localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
-  const input = JSON.parse(localStorage.getItem("formulaire"));
-  
-  const order = {
-    contact: {
-      firstName: input.prenom,
-      lastName: input.nom,
-      address: input.postal,
-      city: input.ville,
-      email: input.mail,
-    },
-    products: basket,
-  }
-     // on envoie en POST
-     fetch("http://localhost:3000/api/teddies/order", {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json",
-      },
-      body: JSON.stringify({order}),
-  })
-      .then((response) => response.json())
-      .then((json) => {
-          localStorage.setItem("order", JSON.stringify(json));
-          document.location.href = "#";
-      })
-      .catch((erreur) => console.log("erreur : " + erreur));
-
-/*fetch("http://localhost:3000/api/teddies/order",{
-  method: "POST",
-  body: JSON.stringify(order),
-  headers:{  
-    "Content-Type" : "application/json",
-  },
-});
-console.log("order");
-console.log( order);
-*/
-
-
-/*
-fetch("http://localhost:3000/api/teddies/order")
-.then(async(response)=>{
-  try{
+    }
+    const formulaireValues = new Formulaire();
+    localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
+    const input = JSON.parse(localStorage.getItem("formulaire"));
+    console.log("input")
+    console.log(input)
     
-    const donneesServeur = await response.json();
-    console.log("donneesServeur");
-    console.log(donneesServeur);
-
-  }catch(e){
-    console.log(e);
-  }
-})*/
+    const order = {
+      contact: {
+        firstName: input.prenom,
+        lastName: input.nom,
+        address: input.postal,
+        city: input.ville,
+        email: input.mail,
+      },
+      products: basket,
+    }
+    console.log("order");
+    console.log(order); 
+    
+   // Création de l'entête de la requête
+   const options = {
+    method: "POST",
+    body: JSON.stringify(order),
+    headers: { "Content-Type": "application/json" },
+  };
+  fetch("http://localhost:3000/api/teddies/order", options)
+  .then((response) => response.json())
+  .then((data) => {
+    localStorage.clear();
+    console.log(data)
+    localStorage.setItem("orderId", data.orderId);
+    document.location.href = "order.html";
+}) .catch((err) => {
+  alert("Il y a eu une erreur : " + err);
 });
+})
 }
-envoieForm();
- function valideForm(){    
+
+ /*function valideForm(){    
     var prenom = document.forms["form"]["user_name"];
     var nom = document.forms["form"]["user_lastname"];
     var postal = document.forms["form"]["user_postal"];
@@ -302,7 +281,7 @@ return true;
 }
 }
 
-
+*/
  
 
 

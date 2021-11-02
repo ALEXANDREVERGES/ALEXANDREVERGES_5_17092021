@@ -17,8 +17,9 @@ fetch(newUrl)
 .then((data) => {
 	
     const product = data;	
-    addCard(data);
-    addColors(data);
+
+    addCard(product);
+    addColors(product);
     addToCart();
     
     // fonction pour la création de la card de la page produit
