@@ -177,13 +177,14 @@ class Formulaire {
    console.log(formulaireValues)
    localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
    const input = JSON.parse(localStorage.getItem("formulaireValues"))
+   
    let products = [];
    for(var o = 0; o < basket.length; o++){
      let productsId = basket[o].id;
      products.push(productsId);
    }
    console.log("products")
-console.log(products)
+   console.log(products)
 
    
     const contact ={
@@ -193,28 +194,18 @@ console.log(products)
      city: document.querySelector("#user_city").value,
      email: document.querySelector("#user_mail").value
     }
+  console.log("contact")
+  console.log(contact)
   
-   const aEnvoyer = {
-     contact,
-     products,
-   }
-   
 
-   /* const options = {
-    method: "POST",
-    body: JSON.stringify({order}),
-    headers: { "Content-Type": "application/json" },
-  }; */
-  console.log("aEnvoyer")
-console.log(aEnvoyer)
 const promise1 = fetch("http://localhost:3000/api/teddies/order", {
     method: "POST",
-    body: JSON.stringify(aEnvoyer),
+    body: JSON.stringify({contact, products}),
     headers: { 
       "Content-Type": "application/json" 
     },
 })
-console.log(promise1)
+
 
 promise1.then(async(response)=>{
   try{
@@ -224,6 +215,9 @@ promise1.then(async(response)=>{
     console.log("contenu")
     console.log(contenu)
     if(response.ok) {
+
+      window.location = "order.html";
+      localStorage.setItem("order", contenu.orderId);
       console.log("contenu orderId")
       console.log(contenu.orderId)
     }else{
@@ -234,28 +228,7 @@ promise1.then(async(response)=>{
     console.log(e)
   }
 })
- // Envoie des données avec FETCH
- /*fetch("http://localhost:3000/api/teddies/order", options)
- .then(response => response.json())
- .then((response) =>{
  
-
-     let objRes =  response.json();
-
-     console.log(objRes);
-     localStorage.setItem("orderKey", objRes.orderId);
-     
-     let totaldupanier = document.querySelector("#totalPrice");
-     localStorage.setItem("totalKey", totaldupanier.textContent);
-
-
-     alert("Veuillez cliquer sur OK pour comfirmer votre commande.");
-     location.replace("order.html");
- })
- .catch(function(error){
-
-     console.log(error) */
-
  })
 
 
