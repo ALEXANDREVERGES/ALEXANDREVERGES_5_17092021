@@ -75,7 +75,8 @@ fetch(newUrl)
               idQuantity: parseFloat(document.querySelector("#bearNum").value),
               idCouleur: document.querySelector("#option").value,
               id:newId,
-            };           
+            };     
+                
             // ----------------- Gestion du localStorage
           let arrayPeluche = []; 
 // Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayPeluche, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.

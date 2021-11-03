@@ -153,123 +153,117 @@ for(let l = 0; l < btn_supprimer.length; l++){
 
 
   })
-}
+};
 
+//ENVOIE POST DU FORMULAIRE ET PRODUIT AU SERVER
 
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
-function envoieForm(){
-btnEnvoieForm .addEventListener("click",() =>{
-  
-      //définition d'une classe pour fabriquer l'objet dans lequel iront 
-    //les values du formulaire
-    class Formulaire {
-      constructor(input){
-          this.prenom = document.querySelector("#user_name").value;
-          this.nom = document.querySelector("#user_lastname").value;
-          this.postal = document.querySelector("#user_postal").value;
-          this.ville = document.querySelector("#user_city").value;
-          this.adresse = document.querySelector("#user_adress").value;
-          this.mail= document.querySelector("#user_mail").value;
-          
-      }
-    }
-    const formulaireValues = new Formulaire();
-    localStorage.setItem("formulaire", JSON.stringify(formulaireValues));
-    const input = JSON.parse(localStorage.getItem("formulaire"));
-    console.log("input")
-    console.log(input)
- 
-    const order = {
-      formulaireValues,
-      basket,
-    }
-
-  fetch("http://localhost:3000/api/teddies/order",{
-    method:"POST",
-    body: JSON.stringify(order),
-    headers:{
-      "Content-Type" : "application/json",
-    }
-  });
-  fetch("http://localhost:3000/api/teddies/order")
-  .then(async(res)=>{
-    let resObj = response;
-     console.log(resObj["orderId"]);
-     localStorage.setItem("orderKey", resObj["orderId"]);      
-     alert("Veuillez cliquer sur OK pour comfirmer votre commande.");
-     document.location.href("order.html");
-  })
-})
+console.log(btnEnvoieForm)
+btnEnvoieForm.addEventListener("click",(e) =>{
+  e.preventDefault();
+  //définition d'une classe pour fabriquer l'objet
+class Formulaire {
+  constructor(firstname,lastname,adress,city,postal,email){
+    this.firstname = document.querySelector("#user_name").value;
+    this.lastname = document.querySelector("#user_lastname").value;
+    this.adress = document.querySelector("#user_adress").value;
+    this.city = document.querySelector("#user_city").value;
+    this.postal = document.querySelector("#user_postal").value;
+    this.email = document.querySelector("#user_mail").value;
+  }
 }
- /*function valideForm(){    
-    var prenom = document.forms["form"]["user_name"];
-    var nom = document.forms["form"]["user_lastname"];
-    var postal = document.forms["form"]["user_postal"];
-    var ville = document.forms["form"]["user_city"];
-    var adresse = document.forms["form"]["user_adress"];
-    var mail = document.forms["form"]["user_mail"];
-    var telephone = document.forms["form"]["user_phone"];
-
-
-if (prenom.value == "")                                  
-{ 
-alert("Mettez votre prénom"); 
-prenom.focus(); 
-return false; 
-} 
+   const formulaireValues = new Formulaire();
+   console.log("formulaireValues")
+   console.log(formulaireValues)
+   localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+   const input = JSON.parse(localStorage.getItem("formulaireValues"))
+   let products = [];
+   for(var o = 0; o < basket.length; o++){
+     let productsId = basket[o].id;
+     products.push(productsId);
+   }
+   console.log("products")
+console.log(products)
 
    
-if (nom.value == "")                                  
-{ 
-alert("Mettez votre nom"); 
-nom.focus(); 
-return false; 
-}
-if (postal.value == "")                               
-{ 
-alert("Mettez votre code postal"); 
-postal.focus(); 
-return false; 
-}  
-if (ville.value == "")                               
-{ 
-alert("Mettez votre ville"); 
-ville.focus(); 
-return false; 
-}              
-if (adresse.value == "")                               
-{ 
-alert("Mettez votre adresse"); 
-adresse.focus(); 
-return false; 
-}        
-if (mail.value == "")                                   
-{ 
-alert("Mettez une adresse email valide"); 
-mail.focus(); 
-return false; 
-}    
-if (mail.value.indexOf("@", 0) < 0)                 
-{ 
-alert("Mettez une adresse email valide"); 
-mail.focus(); 
-return false; 
-}    
-if (mail.value.indexOf(".", 0) < 0)                 
-{ 
-alert("Mettez une adresse email valide"); 
-mail.focus(); 
-return false; 
-}    
+    const contact ={
+     firstname: document.querySelector("#user_name").value,
+     lastname: document.querySelector("#user_lastname").value,
+     adress: document.querySelector("#user_adress").value,
+     city: document.querySelector("#user_city").value,
+     email: document.querySelector("#user_mail").value
+    }
+  
+   const aEnvoyer = {
+     contact,
+     products,
+   }
+   
 
+   /* const options = {
+    method: "POST",
+    body: JSON.stringify({order}),
+    headers: { "Content-Type": "application/json" },
+  }; */
+  console.log("aEnvoyer")
+console.log(aEnvoyer)
+const promise1 = fetch("http://localhost:3000/api/teddies/order", {
+    method: "POST",
+    body: JSON.stringify(aEnvoyer),
+    headers: { 
+      "Content-Type": "application/json" 
+    },
+})
+console.log(promise1)
+
+promise1.then(async(response)=>{
+  try{
+    console.log("response")
+    console.log(response)
+    const contenu = await response.json();
+    console.log("contenu")
+    console.log(contenu)
+    if(response.ok) {
+      console.log("contenu orderId")
+      console.log(contenu.orderId)
+    }else{
+      console.log(`Réponse du server : ${response.status}`);
+    }
+
+  }catch(e){
+    console.log(e)
+  }
+})
+ // Envoie des données avec FETCH
+ /*fetch("http://localhost:3000/api/teddies/order", options)
+ .then(response => response.json())
+ .then((response) =>{
  
-else{
 
-return true;
-}
-}
+     let objRes =  response.json();
 
-*/
+     console.log(objRes);
+     localStorage.setItem("orderKey", objRes.orderId);
+     
+     let totaldupanier = document.querySelector("#totalPrice");
+     localStorage.setItem("totalKey", totaldupanier.textContent);
+
+
+     alert("Veuillez cliquer sur OK pour comfirmer votre commande.");
+     location.replace("order.html");
+ })
+ .catch(function(error){
+
+     console.log(error) */
+
+ })
+
+
+
+
+
+
+
  
 
 
