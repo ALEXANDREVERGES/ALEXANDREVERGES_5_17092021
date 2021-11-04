@@ -70,7 +70,7 @@
             </tr>
         </table>
     </div> 
-   <div id="panierVide"></div>
+   <div id="panierVide"></div> 
    <div id="rien"></div>  
    <div class="container_panier">
     <table>
@@ -93,14 +93,18 @@
 <div class="ctnBtn">
 
 </div>
+
 <div class="container_form">
+   
     <div class="eltForm">
     
-    <div>
+    <div class="width">
     <!---------- formulaire ------->
-    <form onsubmit="return valideForm()" action=""  name="form"  class="form">
+    <form  name="form"  class="form">
+    
         <h2>Votre adresse de livraison</h2>
-            <div class="">
+    
+            <div >
                 <div class="bold" id="">
                 <label for="name">Prénom* :</label>
                     <input  type="text" placeholder="Prénom" id="user_name" name="user_name" pattern="[A-Za-z]{1,}" required> 
@@ -117,7 +121,7 @@
                 </div><br>
                 <div class="bold" id="">
                     <label for="city">Ville* :</label>
-                    <input type="text" placeholder="Ville" id="user_city" name="user_city" pattern="[A-Za-z\s]{1,}">
+                    <input type="text" placeholder="Ville" id="user_city" name="user_city" pattern="[A-Za-z\s]{1,}" required>
                 </div>
             </div><br>
             <div class="bold" id="">
@@ -126,12 +130,7 @@
             </div><br>
             <div class="bold" id="">
                 <label for="mail">Adresse mail* :</label>
-                <input type="email" placeholder="adresse@mail.com" id="user_mail" name="user_mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" required>
-            </div><br>
-            <div class="bold" id="">
-                <label for="phone" >N° de téléphone* :</label>
-                <input type="tel" placeholder="Numéro de téléphone" id="phone" name="phone"  pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$
-                " required>
+                <input type="email" placeholder="votreadressemail@mail.com" id="user_mail" name="user_mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" required>
             </div><br>
             <div class="containerRemplir">
             <div class="remplir">*à remplir obligatoirement</div>
@@ -166,6 +165,7 @@
  
 
 <script src="./front-end/JS/panier.js"></script>    
+<script src="./front-end/JS/app.js"></script>  
 
 
 
