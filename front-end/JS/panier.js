@@ -16,6 +16,9 @@ let reducer = (accumulator, currentValue) => accumulator + currentValue;
 const prixTotal = prixTotalCalcul.reduce(reducer);
 
 let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +"€";
+localStorage.setItem("totalprice", JSON.stringify(totalPrice)) ;
+
+
 
 
 
@@ -127,7 +130,7 @@ let btn_supprimer = document.querySelectorAll(".btn-supprimer");
 for(let l = 0; l < btn_supprimer.length; l++){
   btn_supprimer[l].addEventListener("click",(event) =>{
     event.preventDefault();
-
+ 
     //sélectionner ID qui va être supprimé après le click
     let id_selectionner_suppression = basket[l].id + basket[l].idCouleur;
     console.log("id_selectionner_suppression");
@@ -151,7 +154,7 @@ for(let l = 0; l < btn_supprimer.length; l++){
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
 console.log(btnEnvoieForm)
 btnEnvoieForm.addEventListener("click",(e) =>{
-  e.preventDefault();
+  
   //définition d'une classe pour fabriquer l'objet
 class Formulaire {
   constructor(firstname,lastname,adress,city,postal,email){
@@ -168,12 +171,13 @@ class Formulaire {
    console.log(formulaireValues)
    localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
    const input = JSON.parse(localStorage.getItem("formulaireValues"))
-   
+
+ 
    let products = [];
    for(var o = 0; o < basket.length; o++){
      let productsId = basket[o].id;
      products.push(productsId);
-   }
+   };
    console.log("products")
    console.log(products)
 
@@ -184,12 +188,43 @@ class Formulaire {
      adress: document.querySelector("#user_adress").value,
      city: document.querySelector("#user_city").value,
      email: document.querySelector("#user_mail").value
-    }
+    };
   console.log("contact")
   console.log(contact)
-  
 
-const promise1 = fetch("http://localhost:3000/api/teddies/order", {
+
+  let firstname = document.getElementById('user_name').value;
+  let lastname = document.getElementById('user_lastname').value;
+  let address = document.getElementById('user_adress').value;
+  let city = document.getElementById('user_city').value;
+  let email = document.getElementById('user_mail').value;
+  if (firstname, lastname, address, city, email != "" && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) 
+  {
+     return true;
+  } 
+
+  // on envoie en POST
+  fetch("http://localhost:3000/api/teddies/order", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ contact, products }),
+})
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("data")
+      console.log(data)
+        /*localStorage.clear();  */
+        localStorage.setItem("order", JSON.stringify(data));
+        document.location.href = "#";
+    })
+    
+   .catch((erreur) => console.log("erreur : " + erreur));
+}) 
+
+
+/* const promise1 = fetch("http://localhost:3000/api/teddies/order", {
     method: "POST",
     body: JSON.stringify({contact, products}),
     headers: { 
@@ -221,13 +256,16 @@ promise1.then(async(response)=>{
 })
  
  })
+*/
 
 
 
 
 
 
-
+ 
+    
+ 
  
 
 

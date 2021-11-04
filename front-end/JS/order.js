@@ -2,7 +2,7 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 console.log(basket);
 const order = JSON.parse(localStorage.getItem("formulaireValues")) || [];
 console.log(order);
-let priceOfOrder = localStorage.getItem("totalKey");
+let priceOfOrder = localStorage.getItem("totalprice");
 let orderId = localStorage.getItem("order");
 
 const contact = document.getElementById("contact");
