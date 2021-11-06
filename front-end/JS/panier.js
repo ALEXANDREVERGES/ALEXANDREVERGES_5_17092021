@@ -149,11 +149,9 @@ for(let l = 0; l < btn_supprimer.length; l++){
   })
 };
 
-//ENVOIE POST DU FORMULAIRE ET PRODUIT AU SERVER
+// GESTION DU FORMULAIRE
+function sendOrder(){
 
-const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
-console.log(btnEnvoieForm)
-btnEnvoieForm.addEventListener("click",(e) =>{
   
   //définition d'une classe pour fabriquer l'objet
 class Formulaire {
@@ -203,13 +201,22 @@ class Formulaire {
      return true;
   } 
 
-  // on envoie en POST
+  let orderTeddies = JSON.stringify({
+    contact,
+    products
+  });
+  console.log("orderTeddies")
+  console.log(orderTeddies)
+
+  // APPEL API AVEC FETCH // ENVOIE DES DONNEES AVEC POST
   fetch("http://localhost:3000/api/teddies/order", {
     method: "POST",
     headers: {
-        "Content-Type": "application/json",
+        "Accept": 'application/json',
+        "Content-Type": "application/json"
     },
-    body: JSON.stringify({ contact, products }),
+    mode:"cors",
+    body: orderTeddies,
 })
     .then((response) => response.json())
     .then((data) => {
@@ -217,46 +224,21 @@ class Formulaire {
       console.log(data)
         /*localStorage.clear();  */
         localStorage.setItem("order", JSON.stringify(data));
-        document.location.href = "#";
+        document.location.href = "order.html";
     })
     
    .catch((erreur) => console.log("erreur : " + erreur));
-}) 
 
-
-/* const promise1 = fetch("http://localhost:3000/api/teddies/order", {
-    method: "POST",
-    body: JSON.stringify({contact, products}),
-    headers: { 
-      "Content-Type": "application/json" 
-    },
-})
-
-
-promise1.then(async(response)=>{
-  try{
-    console.log("response")
-    console.log(response)
-    const contenu = await response.json();
-    console.log("contenu")
-    console.log(contenu)
-    if(response.ok) {
-
-      window.location = "order.html";
-      localStorage.setItem("order", contenu.orderId);
-      console.log("contenu orderId")
-      console.log(contenu.orderId)
-    }else{
-      console.log(`Réponse du server : ${response.status}`);
-    }
-
-  }catch(e){
-    console.log(e)
   }
-})
+//ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
+const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
+btnEnvoieForm.addEventListener("click",(e) =>{
+  e.preventDefault;
+  sendOrder();
+}); 
  
- })
-*/
+ 
+
 
 
 
