@@ -131,10 +131,7 @@ function valideForm(){
 }
 */
 
-//ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
-const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
-btnEnvoieForm.addEventListener("click",(e) =>{
-  e.preventDefault();
+function sendForm(){
    //définition d'une classe pour fabriquer l'objet
 
    class Formulaire {
@@ -200,7 +197,9 @@ if(regexMail.test(em) == true){
 
   
 localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
-  
+};
+
+function sendOrder(){
    let products = [];
    for(var o = 0; o < basket.length; o++){
      let productsId = basket[o].id;
@@ -220,16 +219,6 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
   console.log("contact")
   console.log(contact)
 
-
-  
-
-  let orderTeddies = JSON.stringify({
-    contact,
-    products
-  });
-  console.log("orderTeddies")
-  console.log(orderTeddies)
-
   // APPEL API AVEC FETCH // ENVOIE DES DONNEES AVEC POST
   fetch("http://localhost:3000/api/teddies/order", {
     method: "POST",
@@ -238,7 +227,7 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
         "Content-Type": "application/json"
     },
     mode:"cors",
-    body: orderTeddies,
+    body: JSON.stringify({ contact, products }),
 })
     .then((response) => response.json())
     .then((data) => {
@@ -252,8 +241,14 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
     })
     
    .catch((erreur) => console.log("erreur : " + erreur));
-
-  });
+  }
+   //ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
+   const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
+   btnEnvoieForm.addEventListener("click",(e) =>{
+     e.preventDefault();
+sendForm();
+sendOrder()
+});  
 
   
   
