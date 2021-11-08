@@ -149,10 +149,6 @@ class Formulaire {
    console.log("formulaireValues")
    console.log(formulaireValues)
   
-   
-   const input = JSON.parse(localStorage.getItem("formulaireValues"))
-
-
 
    const prenom = formulaireValues.firstname;
    const lenom = formulaireValues.lastname;
@@ -160,93 +156,60 @@ class Formulaire {
    const cit = formulaireValues.city;
    const post = formulaireValues.postal;
    const em = formulaireValues.email;
-   const checkBox = document.getElementById("invalidCheck2");
+   
+   const regexName = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+))$/;
+   const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
+   const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+   const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
+   const regexPostal = /[0-9]{5}/;
 
-
-  function prenomControle(){
-   if(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(prenom)){
-     console.log("OK");
-     return true;
-
-   }else{
-     console.log("KO")
-     return false;
-     alert("Veuillez remplir correctement votre prénom");
-
-   };
-  };
-
-  function nomControle(){
-   if(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(lenom)){
-    console.log("OK")
-    return true;
-
-  }else{
-    return false;
-    alert("Veuillez remplir correctement votre nom");
-    console.log("KO")
-
-  };
+if(regexName.test(prenom)){
+  return true;
+}else{
+  alert("Veuillez remplir correctement votre prénom")
+};
+if(regexName.test(nom)){
+  return true;
+}else{
+  alert("Veuillez remplir correctement votre nom")
+};
+if(regexPostal.test(post)){
+  return true;
+}else{
+  alert("Veuillez remplir correctement votre code postal")
+};
+if(regexCity.test(cit)){
+  return true;
+}else{
+  alert("Veuillez remplir correctement votre ville")
+};
+if(regexAdress.test(adr)){
+  return true;
+}else{
+  alert("Veuillez remplir correctement votre adresse")
+};
+if(regexMail.test(em)){
+  return true;
+}else{
+  alert("Veuillez remplir correctement votre adresse Mail")
 };
 
-function adressControle(){
-  if(/^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/.test(adr)){
-    console.log("OK")
-    return true;
-  }else{
-    return false;
-    alert("Veuillez remplir correctement votre adresse");
-    console.log("KO")
-  };
-};
 
-function cityControle(){
-  if(/^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/.test(cit)){
-    console.log("OK")
-    return true;
-  }else{
-    return false;
-    alert("Veuillez remplir correctement votre ville");
-    console.log("KO")
-  };
-};
 
-function emailControle(){
-  if(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/.test(em)){
-    console.log("OK")
-    return true;
-  }else{
-    return false;
-    alert("Veuillez remplir correctement votre adresse mail");
-    console.log("KO")
-  };
-};
 
-function postalControle(){
-  if(/[0-9]{5}/g.test(post)){
-    console.log("OK")
-    return true;
-  }else{
-    return false;
-    alert("Veuillez remplir correctement votre code postal");
-    console.log("KO")
-  };
-};
-
-function checkControle(){
-  if(checkBox == true){
-    console.log("OK")
-    return true;
-  }else{
-    return false;
-    alert("Veuillez accepter les conditions générales de ventes");
-    console.log("KO")
-  };
-};
+  
+   if(
+    (regexMail.test(em) == true) &
+    (regexName.test(prenom) == true) &
+    (regexName.test(lenom) == true) &
+    (regexCity.test(cit) == true) &
+    (regexAddress.test(adr) == true) &
+    (regexAddress.test(post) == true) 
+){
  
 
 
-
+localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 
 
 
@@ -296,24 +259,23 @@ function checkControle(){
       console.log(data)
         /*localStorage.clear();  */
         localStorage.setItem("order", JSON.stringify(data));
+  
         document.location.href = "order.html";
+      
+       
     })
     
    .catch((erreur) => console.log("erreur : " + erreur));
-
+  }else{
+    alert("Veuillez renseigner correctement le formulaire pour valider votre commande")
+  }
   }
 //ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
 btnEnvoieForm.addEventListener("click",(e) =>{
   e.preventDefault;
   sendForm();
-  prenomControle();
-  nomControle();
-  adressControle();
-  cityControle();
-  emailControle();
-  postalControle();
-  checkControle();
+
 }); 
  
 
