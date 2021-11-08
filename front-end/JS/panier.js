@@ -27,6 +27,7 @@ localStorage.setItem("totalprice", JSON.stringify(totalPrice)) ;
 
 
 
+
 //annoncé si le panier est vide + photo
  if(basket.length === null){
      const panierVide = document.getElementById("rien");
@@ -66,8 +67,8 @@ localStorage.setItem("totalprice", JSON.stringify(totalPrice)) ;
            
      } 
      if(k === basket.length){
-         panierVide.innerHTML = structurePanier;
-     } 
+      panierVide.innerHTML = structurePanier;
+  } 
      
  }
 //button pour supprimer tout le panier
@@ -76,51 +77,6 @@ buttonToEmptyCart.addEventListener("click",() =>{
    localStorage.clear();
    location.reload();
 })
-/*
- //bouton - et +
-
-document.querySelectorAll(".btnInputM").setAttribute("disabled", "disabled");
-
-//prendre la valeur pour incrémenter décrémenter
-var valueCount
-
-//button +
-document.querySelectorAll(".btnInputP").addEventListener("click", function(){
-
-  //je récupère la value de l'input quantité
-  valueCount = document.getElementById("qt").value;
-
-  //input value  +1
-  valueCount++;
-
-  document.getElementById("qt").value = valueCount
-
-  if(valueCount > 1){
-    document.querySelectorAll(".btnInputM").removeAttribute("disabled")
-    document.querySelectorAll(".btnInputM").classList.remove("disabled")
-  }
-})
-
-//button +
-document.querySelectorAll(".btnInputM").addEventListener("click", function(){
-
-  //je récupère la value de l'input quantité
-  valueCount = document.getElementById("qt").value;
-
-  //input value  +1
-  valueCount--;
-
-  document.getElementById("qt").value = valueCount
-
-  if(valueCount == 1){
-    document.querySelectorAll(".btnInputM").setAttribute("disabled", "disabled")
-  }
-})
-*/
-
-
-
-
 
  //bouton pour supprimer les articles du panier 
  //sélectionner les référence de tous les bouton supprimer article
@@ -149,10 +105,35 @@ for(let l = 0; l < btn_supprimer.length; l++){
   })
 };
 
-// GESTION DU FORMULAIRE
-function sendOrder(){
+//Valider le formulaire
 
-  
+
+/*
+function valideForm(){
+    const regexName = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
+    const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
+    const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
+    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
+    
+  if ( 
+  (regexMail.test(contact.email) == true) &
+  (regexName.test(contact.firstName) == true) &
+  (regexName.test(contact.lastName) == true) &
+  (regexCity.test(contact.city) == true) &
+  (regexAddress.test(contact.address) == true) &
+  (checkBox.checked == true)
+  ) ;
+  else {
+    alert("Veuillez correctement renseigner le formulaire pour valider votre commande. ");
+    return false;
+}
+
+}
+*/
+
+
+// GESTION DU FORMULAIRE
+function sendForm(){
   //définition d'une classe pour fabriquer l'objet
 class Formulaire {
   constructor(firstname,lastname,adress,city,postal,email){
@@ -167,10 +148,109 @@ class Formulaire {
    const formulaireValues = new Formulaire();
    console.log("formulaireValues")
    console.log(formulaireValues)
-   localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+  
+   
    const input = JSON.parse(localStorage.getItem("formulaireValues"))
 
+
+
+   const prenom = formulaireValues.firstname;
+   const lenom = formulaireValues.lastname;
+   const adr = formulaireValues.adress;
+   const cit = formulaireValues.city;
+   const post = formulaireValues.postal;
+   const em = formulaireValues.email;
+   const checkBox = document.getElementById("invalidCheck2");
+
+
+  function prenomControle(){
+   if(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(prenom)){
+     console.log("OK");
+     return true;
+
+   }else{
+     console.log("KO")
+     return false;
+     alert("Veuillez remplir correctement votre prénom");
+
+   };
+  };
+
+  function nomControle(){
+   if(/^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/.test(lenom)){
+    console.log("OK")
+    return true;
+
+  }else{
+    return false;
+    alert("Veuillez remplir correctement votre nom");
+    console.log("KO")
+
+  };
+};
+
+function adressControle(){
+  if(/^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/.test(adr)){
+    console.log("OK")
+    return true;
+  }else{
+    return false;
+    alert("Veuillez remplir correctement votre adresse");
+    console.log("KO")
+  };
+};
+
+function cityControle(){
+  if(/^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/.test(cit)){
+    console.log("OK")
+    return true;
+  }else{
+    return false;
+    alert("Veuillez remplir correctement votre ville");
+    console.log("KO")
+  };
+};
+
+function emailControle(){
+  if(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/.test(em)){
+    console.log("OK")
+    return true;
+  }else{
+    return false;
+    alert("Veuillez remplir correctement votre adresse mail");
+    console.log("KO")
+  };
+};
+
+function postalControle(){
+  if(/[0-9]{5}/g.test(post)){
+    console.log("OK")
+    return true;
+  }else{
+    return false;
+    alert("Veuillez remplir correctement votre code postal");
+    console.log("KO")
+  };
+};
+
+function checkControle(){
+  if(checkBox == true){
+    console.log("OK")
+    return true;
+  }else{
+    return false;
+    alert("Veuillez accepter les conditions générales de ventes");
+    console.log("KO")
+  };
+};
  
+
+
+
+
+
+
+  
    let products = [];
    for(var o = 0; o < basket.length; o++){
      let productsId = basket[o].id;
@@ -191,15 +271,7 @@ class Formulaire {
   console.log(contact)
 
 
-  let firstname = document.getElementById('user_name').value;
-  let lastname = document.getElementById('user_lastname').value;
-  let address = document.getElementById('user_adress').value;
-  let city = document.getElementById('user_city').value;
-  let email = document.getElementById('user_mail').value;
-  if (firstname, lastname, address, city, email != "" && /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)) 
-  {
-     return true;
-  } 
+  
 
   let orderTeddies = JSON.stringify({
     contact,
@@ -234,9 +306,15 @@ class Formulaire {
 const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
 btnEnvoieForm.addEventListener("click",(e) =>{
   e.preventDefault;
-  sendOrder();
+  sendForm();
+  prenomControle();
+  nomControle();
+  adressControle();
+  cityControle();
+  emailControle();
+  postalControle();
+  checkControle();
 }); 
- 
  
 
 
