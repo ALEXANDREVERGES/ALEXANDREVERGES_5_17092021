@@ -131,25 +131,29 @@ function valideForm(){
 }
 */
 
+//ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
+const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
+btnEnvoieForm.addEventListener("click",(e) =>{
+  e.preventDefault();
+   //définition d'une classe pour fabriquer l'objet
 
-// GESTION DU FORMULAIRE
-function sendForm(){
-  //définition d'une classe pour fabriquer l'objet
-class Formulaire {
-  constructor(firstname,lastname,adress,city,postal,email){
-    this.firstname = document.querySelector("#user_name").value;
-    this.lastname = document.querySelector("#user_lastname").value;
-    this.adress = document.querySelector("#user_adress").value;
-    this.city = document.querySelector("#user_city").value;
-    this.postal = document.querySelector("#user_postal").value;
-    this.email = document.querySelector("#user_mail").value;
+   class Formulaire {
+    constructor(firstname,lastname,adress,city,postal,email){
+      this.firstname = document.querySelector("#user_name").value;
+      this.lastname = document.querySelector("#user_lastname").value;
+      this.adress = document.querySelector("#user_adress").value;
+      this.city = document.querySelector("#user_city").value;
+      this.postal = document.querySelector("#user_postal").value;
+      this.email = document.querySelector("#user_mail").value;
+    }
   }
-}
-   const formulaireValues = new Formulaire();
-   console.log("formulaireValues")
-   console.log(formulaireValues)
-  
+     const formulaireValues = new Formulaire();
+     console.log("formulaireValues")
+     console.log(formulaireValues)
+    
+// GESTION DU FORMULAIRE
 
+ 
    const prenom = formulaireValues.firstname;
    const lenom = formulaireValues.lastname;
    const adr = formulaireValues.adress;
@@ -163,56 +167,39 @@ class Formulaire {
    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
    const regexPostal = /[0-9]{5}/;
 
-if(regexName.test(prenom)){
-  return true;
+if(regexName.test(prenom) == true){
+  
 }else{
   alert("Veuillez remplir correctement votre prénom")
 };
-if(regexName.test(nom)){
-  return true;
+if(regexName.test(lenom) == true){
+  
 }else{
   alert("Veuillez remplir correctement votre nom")
 };
-if(regexPostal.test(post)){
-  return true;
+if(regexPostal.test(post) == true){
+  
 }else{
   alert("Veuillez remplir correctement votre code postal")
 };
-if(regexCity.test(cit)){
-  return true;
+if(regexCity.test(cit) == true){
+  
 }else{
   alert("Veuillez remplir correctement votre ville")
 };
-if(regexAdress.test(adr)){
-  return true;
+if(regexAddress.test(adr) == true){
+  
 }else{
   alert("Veuillez remplir correctement votre adresse")
 };
-if(regexMail.test(em)){
-  return true;
+if(regexMail.test(em) == true){
+  
 }else{
   alert("Veuillez remplir correctement votre adresse Mail")
-};
-
-
-
+}; 
 
   
-   if(
-    (regexMail.test(em) == true) &
-    (regexName.test(prenom) == true) &
-    (regexName.test(lenom) == true) &
-    (regexCity.test(cit) == true) &
-    (regexAddress.test(adr) == true) &
-    (regexAddress.test(post) == true) 
-){
- 
-
-
 localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
-
-
-
   
    let products = [];
    for(var o = 0; o < basket.length; o++){
@@ -258,26 +245,20 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
       console.log("data")
       console.log(data)
         /*localStorage.clear();  */
-        localStorage.setItem("order", JSON.stringify(data));
-  
+        localStorage.setItem("order", JSON.stringify(data)); 
         document.location.href = "order.html";
       
        
     })
     
    .catch((erreur) => console.log("erreur : " + erreur));
-  }else{
-    alert("Veuillez renseigner correctement le formulaire pour valider votre commande")
-  }
-  }
-//ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
-const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
-btnEnvoieForm.addEventListener("click",(e) =>{
-  e.preventDefault;
-  sendForm();
 
-}); 
- 
+  });
+
+  
+  
+
+
 
 
 
