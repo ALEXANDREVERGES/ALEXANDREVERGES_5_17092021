@@ -69,9 +69,12 @@
                 
             </tr>
         </table>
-    </div> 
+    </div>  
+    <div>
    <div id="panierVide"></div> 
-   <div id="rien"></div>  
+  
+   <div id="rien"></div>
+   </div>
    <div class="container_panier">
     <table>
         <tr >         
@@ -107,21 +110,21 @@
             <div >
                 <div class="bold" id="">
                 <label for="name">Prénom* :</label>
-                    <input  type="text" placeholder="Prénom" id="user_name" name="user_name" pattern="[A-Za-z]{1,}" required> 
+                    <input  type="text" placeholder="Prénom" id="user_name" name="user_name" required> 
                 </div><br>
                 <div class="bold" id="">
                     <label for="lastname">Nom* :</label>
-                    <input type="text" placeholder="Nom" id="user_lastname" name="user_lastname"pattern="[A-Za-z]{1,}" required>
+                    <input type="text" placeholder="Nom" id="user_lastname" name="user_lastname" required>
                 </div>
             </div> <br>       
             <div class="">
                 <div class="bold" id="">
                     <label for="postal">Code postal* :</label>
-                    <input type="number" placeholder="Code postal" id="user_postal" name="user_postal" required>
+                    <input type="number" placeholder="Code postal" id="user_postal" required>
                 </div><br>
                 <div class="bold" id="">
                     <label for="city">Ville* :</label>
-                    <input type="text" placeholder="Ville" id="user_city" name="user_city" pattern="[A-Za-z\s]{1,}" required>
+                    <input type="text" placeholder="Ville" id="user_city" name="user_city" required>
                 </div>
             </div><br>
             <div class="bold" id="">
@@ -130,16 +133,12 @@
             </div><br>
             <div class="bold" id="">
                 <label for="mail">Adresse mail* :</label>
-                <input type="email" placeholder="votreadressemail@mail.com" id="user_mail" name="user_mail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}$" required>
+                <input type="email" placeholder="votreadressemail@mail.com" id="user_mail" name="user_mail" required>
             </div><br>
             <div class="containerRemplir">
             <div class="remplir">*à remplir obligatoirement</div>
             </div>
-            <br><div class="cgv">
-           <input type="checkbox" id="invalidCheck2" required/> J'accepte les conditions générales de ventes. 
-           <label for="invalidCheck2">
-           <p data-bs-toggle="tooltip" data-bs-placement="top" title="Termes et conditions de vente : Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum consequatur quos quis, asperiores nostrum cupiditate consequuntur earum quae saepe distinctio!"></p>
-            </label>
+            <br>
         </div>
             <div class="containerCommander">
                 <button   class="btnEnvoieForm">Commander</button>                                                      
