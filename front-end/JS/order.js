@@ -14,5 +14,13 @@ Pour un montant total de : <strong>${priceOfOrder}</strong> ! <br>
 Elle arrivera chez vous, au "<strong>${order.adress} ${order.postal} ${order.city}</strong>". <br>
 Vous allez recevoir un mail sur <strong>${order.email}</strong> lorsque votre commande sera envoyée. <br>
 Merci pour votre commande !! À très bientôt !! 
-<div class="title1"> Orinoco</div></div>
-`
+<div class="title1"> Orinoco</div><br>
+<button class="btnRetour"> Retour boutique </button></div>
+`;
+
+const btnRetour = document.querySelector(".btnRetour");
+btnRetour.addEventListener("click",(e) =>{
+     e.preventDefault();
+localStorage.clear();
+window.location.href = "index.html";
+});  

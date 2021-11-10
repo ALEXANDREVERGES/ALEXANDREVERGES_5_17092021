@@ -233,9 +233,9 @@ function sendOrder(){
     .then((data) => {
       console.log("data")
       console.log(data)
-        /*localStorage.clear();  */
+        
         localStorage.setItem("order", JSON.stringify(data)); 
-        document.location.href = "order.html";
+        document.location.href = "#";
       
        
     })
@@ -247,11 +247,11 @@ function sendOrder(){
    btnEnvoieForm.addEventListener("click",(e) =>{
      e.preventDefault();
 sendForm();
-sendOrder()
+sendOrder();
 });  
 
   
-  
+// localStorage.clear();  
 
 
 
