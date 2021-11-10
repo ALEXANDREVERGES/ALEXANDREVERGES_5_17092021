@@ -235,7 +235,7 @@ function sendOrder(){
       console.log(data)
         
         localStorage.setItem("order", JSON.stringify(data)); 
-        document.location.href = "#";
+        document.location.href = "order.html";
       
        
     })
