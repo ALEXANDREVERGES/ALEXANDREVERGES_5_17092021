@@ -163,43 +163,58 @@ function sendForm(){
    const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
    const regexPostal = /[0-9]{5}/;
-
+/*
 if(regexName.test(prenom) == true){
   
 }else{
   alert("Veuillez remplir correctement votre prénom")
+  
 };
 if(regexName.test(lenom) == true){
   
 }else{
   alert("Veuillez remplir correctement votre nom")
+  
 };
 if(regexPostal.test(post) == true){
   
 }else{
   alert("Veuillez remplir correctement votre code postal")
+  
 };
 if(regexCity.test(cit) == true){
   
 }else{
   alert("Veuillez remplir correctement votre ville")
+  
 };
 if(regexAddress.test(adr) == true){
   
 }else{
   alert("Veuillez remplir correctement votre adresse")
+  
 };
 if(regexMail.test(em) == true){
   
 }else{
   alert("Veuillez remplir correctement votre adresse Mail")
-}; 
-
   
-localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
-};
+}; */
 
-function sendOrder(){
+ 
+if (
+  (regexMail.test(em) == true) &
+  (regexName.test(prenom) == true) &
+  (regexName.test(lenom) == true) &
+  (regexCity.test(cit) == true) &
+  (regexAddress.test(adr) == true) 
+  
+){
+localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
+
+
+
+
    let products = [];
    for(var o = 0; o < basket.length; o++){
      let productsId = basket[o].id;
@@ -233,7 +248,7 @@ function sendOrder(){
     .then((data) => {
       console.log("data")
       console.log(data)
-        
+      localStorage.removeItem('peluche');
         localStorage.setItem("order", JSON.stringify(data)); 
         document.location.href = "order.html";
       
@@ -241,13 +256,17 @@ function sendOrder(){
     })
     
    .catch((erreur) => console.log("erreur : " + erreur));
+  }else{
+    alert("Veuillez remplir correctement tout le formulaire pour valider votre commande.");
+  }
   }
    //ENVOIE DU FORMULAIRE ET PRODUIT AU SERVER
    const btnEnvoieForm = document.querySelector(".btnEnvoieForm");
    btnEnvoieForm.addEventListener("click",(e) =>{
      e.preventDefault();
 sendForm();
-sendOrder();
+
+
 });  
 
   
