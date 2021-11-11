@@ -134,6 +134,8 @@ function valideForm(){
 function sendForm(){
    //définition d'une classe pour fabriquer l'objet
 
+  
+
    class Formulaire {
     constructor(firstname,lastname,adress,city,postal,email){
       this.firstname = document.querySelector("#user_name").value;
@@ -163,10 +165,12 @@ function sendForm(){
    const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
    const regexPostal = /[0-9]{5}/;
-/*
+   const error= document.querySelector("placeholder");
+   console.log(error)
 if(regexName.test(prenom) == true){
   
 }else{
+  error.style.background = "red";
   alert("Veuillez remplir correctement votre prénom")
   
 };
@@ -199,7 +203,7 @@ if(regexMail.test(em) == true){
 }else{
   alert("Veuillez remplir correctement votre adresse Mail")
   
-}; */
+}; 
 
  
 if (
@@ -207,7 +211,8 @@ if (
   (regexName.test(prenom) == true) &
   (regexName.test(lenom) == true) &
   (regexCity.test(cit) == true) &
-  (regexAddress.test(adr) == true) 
+  (regexAddress.test(adr) == true)&
+  (basket != 0) 
   
 ){
 localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
