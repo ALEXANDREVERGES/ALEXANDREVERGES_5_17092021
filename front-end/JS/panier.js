@@ -170,7 +170,7 @@ function sendForm(){
 if(regexName.test(prenom) == true){
   
 }else{
-  error.style.background = "red";
+  
   alert("Veuillez remplir correctement votre prénom")
   
 };
@@ -230,9 +230,9 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 
    
     const contact ={
-     firstname: document.querySelector("#user_name").value,
-     lastname: document.querySelector("#user_lastname").value,
-     adress: document.querySelector("#user_adress").value,
+     firstName: document.querySelector("#user_name").value,
+     lastName: document.querySelector("#user_lastname").value,
+     address: document.querySelector("#user_adress").value,
      city: document.querySelector("#user_city").value,
      email: document.querySelector("#user_mail").value
     };

@@ -537,7 +537,7 @@ td .img1:hover{
 .container_order{
     
     text-align: center;
-   
+   width: 50%;
     font-family: 'Roboto', sans-serif;
     position: absolute;
     top: 38%;
