@@ -2,12 +2,14 @@
 let qtTotalCalcul = [];
     for(var t=0; t < basket.length; t++){
     articlePanier = basket[t].idQuantity;
-    qtTotalCalcul.push(articlePanier)
-    
+    qtTotalCalcul.push(articlePanier) 
   }
   let redu = (accumulator, currentValue) => accumulator + currentValue;
   const qtTotal = qtTotalCalcul.reduce(redu);
+  
     let nbArticlePanier = document.getElementById("basketPreview").textContent = qtTotal;
+    
+  
 
     //---------------ANIMATION TITRES---------------------------------------//
 // Wrap every letter in a span
