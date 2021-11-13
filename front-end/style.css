@@ -393,7 +393,6 @@ input{
     position: relative;
     text-align: center;
     color:white;
-    box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
 .textAcceuil {
     text-align: center;
@@ -409,6 +408,7 @@ input{
     background: rgb(155,155,235);
     background: linear-gradient(188deg, rgba(155,155,235,1) 0%, rgba(36,35,82,1) 93%);
     border-radius: 15px;
+    padding: 20px;
    
   }
 .cgv{
@@ -484,9 +484,7 @@ input{
     color: black;
     font-weight: bold;
 }
-.panierPanier{
-    
-}
+
 .container_panier1{
     
     
@@ -535,7 +533,7 @@ td .img1:hover{
     font-size: 25px;
 }  
 .container_order{
-    
+    opacity: 0.9;
     text-align: center;
    width: 50%;
     font-family: 'Roboto', sans-serif;
@@ -547,6 +545,8 @@ td .img1:hover{
     border-radius: 10px;
     box-shadow: -3px 1px 13px 0px rgba(0,0,0,0.75);
 }
+
+
 #contact{
     height: 900px;
     background-image: url(confettis.jpg);

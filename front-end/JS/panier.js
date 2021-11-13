@@ -1,8 +1,5 @@
 const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 
-
-
-
 //CALCUL PRIX TOTAL DU PANIER 
 let prixTotalCalcul = [];
 for (let m = 0; m < basket.length; m++){
@@ -17,7 +14,6 @@ const prixTotal = prixTotalCalcul.reduce(reducer);
 
 let totalPrice = document.getElementById("totalPrice").textContent = prixTotal +"€";
 localStorage.setItem("totalprice", JSON.stringify(totalPrice)) ;
-
 
 
 if(basket.length === null){
@@ -171,9 +167,6 @@ if (
 ){
 localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 
-
-
-
    let products = [];
    for(var o = 0; o < basket.length; o++){
      let productsId = basket[o].id;
@@ -207,7 +200,6 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
     .then((data) => {
       console.log("data")
       console.log(data)
-      localStorage.removeItem('peluche');
         localStorage.setItem("order", JSON.stringify(data)); 
         document.location.href = "order.html";
       
@@ -224,12 +216,10 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
    btnEnvoieForm.addEventListener("click",(e) =>{
      e.preventDefault();
 sendForm();
-
-
 });  
 
   
-// localStorage.clear();  
+
 
 
 
