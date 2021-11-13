@@ -20,57 +20,39 @@ localStorage.setItem("totalprice", JSON.stringify(totalPrice)) ;
 
 
 
-
-
-
-  
-
-
-
-
-//annoncé si le panier est vide + photo
- if(basket.length === null){
-     const panierVide = document.getElementById("rien");
-     panierVide.innerHTML =`
-     <div class="containerPanier">
-      <img src="img/ourson.png">
-      <div class="text_info3">Votre Panier est vide !</div>
-      </div>`;
- }
-
- //afficher les produits du panier + formulaire
- else{
-     let structurePanier = [];
-     for(var k = 0; k < basket.length; k++){    
-        structurePanier = structurePanier +`       
-        <div id="listeProduit"> 
-            <div class="panierPanier">
-                <table class="container_panier1">         
-                    <tr>
-                        <td>${basket[k].idImage}</td>
-                        <td>${basket[k].idNom}</td>
-                        <td>${basket[k].idCouleur}</td>
-                       
-                       <!--   <div class="btnInputQt">-->
-                        <!-- <button class="btnInputM" type="button">-</button> -->
-                         <td id="qt">${basket[k].idQuantity}</td> 
-                         <!-- <button class="btnInputP" type="button">+</button>-->
-                         </div>
-                        <td id="prix">${basket[k].idPrice}€</td>                                              
-                        <td> <button class="btn-supprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td> 
-                    </tr>                  
-                </table>
-            </div> 
-        </div>                               
-        `;
-       
-           
-     } 
-     if(k === basket.length){
-      panierVide.innerHTML = structurePanier;
+if(basket.length === null){
+  //console.log(basket.length)
+}
+//afficher les produits du panier + formulaire
+else{
+  let structurePanier = [];
+  for(var k = 0; k < basket.length; k++){    
+     structurePanier = structurePanier +`       
+     <div id="listeProduit"> 
+         <div class="panierPanier">
+             <table class="container_panier1">         
+                 <tr>
+                     <td>${basket[k].idImage}</td>
+                     <td>${basket[k].idNom}</td>
+                     <td>${basket[k].idCouleur}</td>
+                    
+                    <!--   <div class="btnInputQt">-->
+                     <!-- <button class="btnInputM" type="button">-</button> -->
+                      <td id="qt">${basket[k].idQuantity}</td> 
+                      <!-- <button class="btnInputP" type="button">+</button>-->
+                      </div>
+                     <td id="prix">${basket[k].idPrice}€</td>                                              
+                     <td> <button class="btn-supprimer"> <i class="fas fa-trash-alt "> Supprimer </i></button></td> 
+                 </tr>                  
+             </table>
+         </div> 
+     </div>                               
+     `;     
   } 
-     
- }
+  if(k === basket.length){
+   panierVide.innerHTML = structurePanier;
+} 
+}
 //button pour supprimer tout le panier
 const buttonToEmptyCart = document.querySelector(".btnSupprimerAll");
 buttonToEmptyCart.addEventListener("click",() =>{
@@ -106,36 +88,8 @@ for(let l = 0; l < btn_supprimer.length; l++){
 };
 
 //Valider le formulaire
-
-
-/*
-function valideForm(){
-    const regexName = /^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$/;
-    const regexCity = /^(([a-zA-ZÀ-ÿ]+[\s\-]{1}[a-zA-ZÀ-ÿ]+)|([a-zA-ZÀ-ÿ]+)){1,10}$/;
-    const regexMail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]{2,}\.[a-z]{2,4}$/;
-    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
-    
-  if ( 
-  (regexMail.test(contact.email) == true) &
-  (regexName.test(contact.firstName) == true) &
-  (regexName.test(contact.lastName) == true) &
-  (regexCity.test(contact.city) == true) &
-  (regexAddress.test(contact.address) == true) &
-  (checkBox.checked == true)
-  ) ;
-  else {
-    alert("Veuillez correctement renseigner le formulaire pour valider votre commande. ");
-    return false;
-}
-
-}
-*/
-
 function sendForm(){
    //définition d'une classe pour fabriquer l'objet
-
-  
-
    class Formulaire {
     constructor(firstname,lastname,adress,city,postal,email){
       this.firstname = document.querySelector("#user_name").value;
