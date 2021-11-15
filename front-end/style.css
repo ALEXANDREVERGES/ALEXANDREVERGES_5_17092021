@@ -468,6 +468,7 @@ input{
 }
 
 #basketPreview{
+    display: block;
     position: absolute;
     top: 5%;
     right: 9.5%;
@@ -480,14 +481,11 @@ input{
     border: 1px solid red;
     background-color: red;
     border-radius: 25px 25px 25px 25px;
-    
     color: black;
     font-weight: bold;
 }
 
-.container_panier1{
-    
-    
+.container_panier1{   
     justify-content: center;
     align-items: center;
     font-family: 'Roboto', sans-serif;

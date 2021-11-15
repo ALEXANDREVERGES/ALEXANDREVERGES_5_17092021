@@ -78,8 +78,6 @@ for(let l = 0; l < btn_supprimer.length; l++){
     localStorage.setItem("peluche", JSON.stringify(result)); 
     location.reload();  
     alert("Votre suppression d'article a été pris en compte !") 
-
-
   })
 };
 
@@ -97,9 +95,7 @@ function sendForm(){
     }
   }
      const formulaireValues = new Formulaire();
-     console.log("formulaireValues")
-     console.log(formulaireValues)
-    
+      
 // GESTION DU FORMULAIRE
 
  
@@ -116,43 +112,30 @@ function sendForm(){
    const regexAddress = /^(([a-zA-ZÀ-ÿ0-9]+[\s\-]{1}[a-zA-ZÀ-ÿ0-9]+)){1,10}$/;
    const regexPostal = /[0-9]{5}/;
    const error= document.querySelector("placeholder");
-   console.log(error)
-if(regexName.test(prenom) == true){
-  
-}else{
-  
-  alert("Veuillez remplir correctement votre prénom")
-  
+   
+if(regexName.test(prenom) == true){ 
+}else{ 
+  alert("Veuillez remplir correctement votre prénom") 
 };
-if(regexName.test(lenom) == true){
-  
+if(regexName.test(lenom) == true){ 
 }else{
-  alert("Veuillez remplir correctement votre nom")
-  
+  alert("Veuillez remplir correctement votre nom") 
 };
-if(regexPostal.test(post) == true){
-  
+if(regexPostal.test(post) == true){ 
 }else{
   alert("Veuillez remplir correctement votre code postal")
-  
 };
 if(regexCity.test(cit) == true){
-  
 }else{
   alert("Veuillez remplir correctement votre ville")
-  
 };
-if(regexAddress.test(adr) == true){
-  
+if(regexAddress.test(adr) == true){ 
 }else{
   alert("Veuillez remplir correctement votre adresse")
-  
 };
-if(regexMail.test(em) == true){
-  
+if(regexMail.test(em) == true){ 
 }else{
   alert("Veuillez remplir correctement votre adresse Mail")
-  
 }; 
 
  
@@ -172,10 +155,7 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
      let productsId = basket[o].id;
      products.push(productsId);
    };
-   console.log("products")
-   console.log(products)
-
-   
+  
     const contact ={
      firstName: document.querySelector("#user_name").value,
      lastName: document.querySelector("#user_lastname").value,
@@ -183,8 +163,7 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
      city: document.querySelector("#user_city").value,
      email: document.querySelector("#user_mail").value
     };
-  console.log("contact")
-  console.log(contact)
+  
 
   // APPEL API AVEC FETCH // ENVOIE DES DONNEES AVEC POST
   fetch("http://localhost:3000/api/teddies/order", {
@@ -198,12 +177,8 @@ localStorage.setItem("formulaireValues", JSON.stringify(formulaireValues));
 })
     .then((response) => response.json())
     .then((data) => {
-      console.log("data")
-      console.log(data)
         localStorage.setItem("order", JSON.stringify(data)); 
-        document.location.href = "order.html";
-      
-       
+        document.location.href = "order.html";   
     })
     
    .catch((erreur) => console.log("erreur : " + erreur));

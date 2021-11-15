@@ -3,8 +3,9 @@ const basket = JSON.parse(localStorage.getItem("peluche")) || [];
 // récupération de l'id du produit
 const searchParams = new URLSearchParams(location.search);
 const newId = searchParams.get("_id");
-//let params = new URL(document.location).searchParams;
-//let id = params.get("id");
+//  La propriété en lecture seule searchParams de l'interface URL retourne un objet URLSearchParams 
+//permettant d'accéder aux arguments décodés de la requête GET contenu dans l'URL.
+
 
 //modification de l'adresse d'appel à l'API
 const newUrl = `http://localhost:3000/api/teddies/${newId}`;
@@ -14,7 +15,7 @@ fetch(newUrl)
 .then((data) => {
 	
     const product = data;	
-
+console.log(product)
     addCard(product);
     addColors(product);
     addToCart();
@@ -42,6 +43,7 @@ fetch(newUrl)
     // fonction pour l'ajout de la couleur du produit
     function addColors(product) {
         const versionChoice = document.getElementById("option");
+        //for...of permet de créer une boucle Array qui parcourt un objet itérable 
         for (let colors of product.colors) {
             versionChoice.innerHTML += `<option class="btn_ajout" value="${colors}">${colors}</option>`;
         }
@@ -76,7 +78,9 @@ fetch(newUrl)
                 
             // ----------------- Gestion du localStorage
           let arrayPeluche = []; 
-// Si le localStorage existe, on récupère son contenu, on l'insère dans le tableau arrayPeluche, puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
+// Si le localStorage existe, on récupère son contenu,
+// on l'insère dans le tableau arrayPeluche
+//puis on le renvoit vers le localStorage avec le nouveau produit ajouté.
       if (localStorage.getItem("peluche") !== null) {   
 
         arrayPeluche = JSON.parse(localStorage.getItem("peluche")); }         
