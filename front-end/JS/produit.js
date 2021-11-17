@@ -15,7 +15,7 @@ fetch(newUrl)
 .then((data) => {
 	
     const product = data;	
-console.log(product)
+
     addCard(product);
     addColors(product);
     addToCart();

@@ -18,11 +18,13 @@ localStorage.setItem("totalprice", JSON.stringify(totalPrice)) ;
 
 if(basket.length === null){
   //console.log(basket.length)
+  oursonVide.style.display = "block";
 }
 //afficher les produits du panier + formulaire
 else{
   let structurePanier = [];
   for(var k = 0; k < basket.length; k++){    
+    oursonVide.style.display = "none";
      structurePanier = structurePanier +`       
      <div id="listeProduit"> 
          <div class="panierPanier">
