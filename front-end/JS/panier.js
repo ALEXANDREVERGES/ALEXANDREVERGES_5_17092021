@@ -23,6 +23,7 @@ if(basket.length === null){
 //afficher les produits du panier + formulaire
 else{
   let structurePanier = [];
+  
   for(var k = 0; k < basket.length; k++){    
     oursonVide.style.display = "none";
      structurePanier = structurePanier +`       
